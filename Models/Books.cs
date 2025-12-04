@@ -12,9 +12,9 @@ namespace OnlineBookStore.Models
         [StringLength(200)]
         public string Title { get; set; }
 
-        [Required]
-        [StringLength(150)]
-        public string Author { get; set; }
+        // Relationship
+        public int AuthorID { get; set; }
+        public Authors Author { get; set; }
 
         [StringLength(100)]
         public string Category { get; set; }
@@ -27,7 +27,6 @@ namespace OnlineBookStore.Models
 
         public string ImageUrl { get; set; } = string.Empty;
 
-        // Navigation Property
         public virtual List<OrderDetail> OrderDetails { get; set; }
     }
 }
