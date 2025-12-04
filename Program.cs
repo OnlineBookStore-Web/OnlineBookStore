@@ -32,5 +32,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+//Seed database (Sara)
+OnlineBookStore.Data.AppDbInitializer.Seed(app);
 
 app.Run();

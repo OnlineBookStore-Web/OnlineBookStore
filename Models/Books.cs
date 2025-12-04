@@ -25,6 +25,8 @@ namespace OnlineBookStore.Models
 
         public string Description { get; set; }
 
+        public string ImageUrl { get; set; } = string.Empty;
+
         // Navigation Property
         public virtual List<OrderDetail> OrderDetails { get; set; }
     }
