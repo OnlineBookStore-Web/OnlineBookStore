@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineBookStore.Models
 {
-    public class Users
+    public class User
     {
         [Key]
         public int UserID { get; set; }
@@ -20,5 +21,8 @@ namespace OnlineBookStore.Models
         public string Password { get; set; }
 
         public bool IsAdmin { get; set; } = false;
+
+        // Navigation Property
+        public virtual List<Order> Orders { get; set; }
     }
 }

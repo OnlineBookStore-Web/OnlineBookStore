@@ -1,9 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineBookStore.Models
 {
-    public class Books
+    public class Book
     {
         [Key]
         public int BookID { get; set; }
@@ -24,5 +24,8 @@ namespace OnlineBookStore.Models
         public int Stock { get; set; }
 
         public string Description { get; set; }
+
+        // Navigation Property
+        public virtual List<OrderDetail> OrderDetails { get; set; }
     }
 }

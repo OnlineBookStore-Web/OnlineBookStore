@@ -1,4 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using System;
 var builder = WebApplication.CreateBuilder(args);
+
+//Dbcontext configuration (Sara)
+builder.Services.AddDbContext<OnlineBookStore.Data.AppDbContext>(options =>
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
