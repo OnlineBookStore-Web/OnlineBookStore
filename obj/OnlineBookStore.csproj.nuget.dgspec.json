@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj": {}
+    "D:\\kolya\\onlineBookStore\\OnlineBookStore.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj": {
+    "D:\\kolya\\onlineBookStore\\OnlineBookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
+        "projectUniqueName": "D:\\kolya\\onlineBookStore\\OnlineBookStore.csproj",
         "projectName": "OnlineBookStore",
-        "projectPath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
-        "packagesPath": "C:\\Users\\Sara Omran\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Web Development\\OnlineBookStore\\obj\\",
+        "projectPath": "D:\\kolya\\onlineBookStore\\OnlineBookStore.csproj",
+        "packagesPath": "C:\\Users\\nadaw\\.nuget\\packages\\",
+        "outputPath": "D:\\kolya\\onlineBookStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Sara Omran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nadaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -63,6 +63,10 @@
             "Microsoft.SqlServer.Server": {
               "target": "Package",
               "version": "[1.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [
