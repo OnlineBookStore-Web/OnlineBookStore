@@ -1,17 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\kolya\\onlineBookStore\\",
+  "WorkspaceRootPath": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\kolya\\onlinebookstore\\views\\userss\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\userss\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\rowan\\onedrive\\dokumente\\cyber 2nd year\\web development\\webpo\\onlinebookstore.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:onlinebookstore.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\kolya\\onlinebookstore\\controllers\\usersscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:controllers\\usersscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\rowan\\onedrive\\dokumente\\cyber 2nd year\\web development\\webpo\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\kolya\\onlinebookstore\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\rowan\\onedrive\\dokumente\\cyber 2nd year\\web development\\webpo\\onlinebookstore.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:onlinebookstore.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\rowan\\onedrive\\dokumente\\cyber 2nd year\\web development\\webpo\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\rowan\\onedrive\\dokumente\\cyber 2nd year\\web development\\webpo\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -27,40 +35,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\kolya\\onlineBookStore\\Views\\Userss\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Userss\\Create.cshtml",
-              "ToolTip": "D:\\kolya\\onlineBookStore\\Views\\Userss\\Create.cshtml",
-              "RelativeToolTip": "Views\\Userss\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-05T13:25:04.672Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserssController.cs",
-              "DocumentMoniker": "D:\\kolya\\onlineBookStore\\Controllers\\UserssController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserssController.cs",
-              "ToolTip": "D:\\kolya\\onlineBookStore\\Controllers\\UserssController.cs",
-              "RelativeToolTip": "Controllers\\UserssController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T12:38:57.984Z",
+              "Title": "OnlineBookStore",
+              "DocumentMoniker": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
+              "RelativeDocumentMoniker": "OnlineBookStore.csproj",
+              "ToolTip": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
+              "RelativeToolTip": "OnlineBookStore.csproj",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-06T23:34:39.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Users.cs",
-              "DocumentMoniker": "D:\\kolya\\onlineBookStore\\Models\\Users.cs",
-              "RelativeDocumentMoniker": "Models\\Users.cs",
-              "ToolTip": "D:\\kolya\\onlineBookStore\\Models\\Users.cs",
-              "RelativeToolTip": "Models\\Users.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA3wBgAAAAeAAAAAAAAAA==",
+              "Title": "OnlineBookStore",
+              "DocumentMoniker": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
+              "RelativeDocumentMoniker": "OnlineBookStore.csproj",
+              "ToolTip": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
+              "RelativeToolTip": "OnlineBookStore.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-06T23:06:41.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\Models\\Cart.cs",
+              "RelativeDocumentMoniker": "Models\\Cart.cs",
+              "ToolTip": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\Models\\Cart.cs",
+              "RelativeToolTip": "Models\\Cart.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAkwCYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-05T12:32:11.524Z",
+              "WhenOpened": "2025-12-06T20:24:06.627Z",
               "EditorCaption": ""
             },
             {
@@ -70,6 +77,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "Views\\Cart\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-06T17:26:46.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "Models\\Users.cs",
+              "ToolTip": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\Models\\Users.cs",
+              "RelativeToolTip": "Models\\Users.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAYwBgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T12:32:11.524Z",
+              "EditorCaption": ""
             }
           ]
         }
