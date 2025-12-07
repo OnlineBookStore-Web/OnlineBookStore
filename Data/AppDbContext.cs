@@ -18,7 +18,6 @@ namespace OnlineBookStore.Data
         //rewan part
         public DbSet<Cart> Carts { get; set; }
 
-   
     }
 }
 
