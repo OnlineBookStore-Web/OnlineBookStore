@@ -1,1 +1,126 @@
-﻿
+﻿@model IEnumerable<OnlineBookStore.Models.Book>
+
+@{
+    ViewData["Title"] = "Books";
+    var isAdmin = User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin");
+}
+
+<style>
+    .hero {
+        background: linear-gradient(90deg, #6a11cb, #2575fc);
+        color: #fff;
+        padding: 45px 25px;
+        border-radius: 6px;
+        margin-bottom: 35px;
+    }
+
+    .book-card {
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        transition: 0.3s;
+    }
+
+        .book-card:hover {
+            transform: translateY(-4px);
+        }
+
+    .book-image {
+        height: 260px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .rating {
+        color: #f6c000;
+    }
+
+    .price {
+        font-weight: 600;
+    }
+</style>
+
+<div class="hero">
+    <div class="container">
+        <h1 class="h3">Discover Your Next Favorite Book</h1>
+        <p>Browse thousands of books across categories — tech, classics, history, and more.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row g-4">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+
+                <!-- CLICKABLE BOOK CARD -->
+                <a asp-controller="Books"
+                   asp-action="Details"
+                   asp-route-id="@item.BookID"
+                   class="text-decoration-none text-dark">
+
+                    <div class="book-card d-flex flex-column">
+
+                        <div class="position-relative">
+                            <img src="@item.ImageUrl" class="book-image" alt="@item.Title" />
+
+                            @if (item.Stock <= 5)
+                            {
+                                <span class="low-stock">Low Stock</span>
+                            }
+                        </div>
+
+                        <div class="p-3 d-flex flex-column">
+
+                            <h5 class="mb-1">@item.Title</h5>
+                            <div class="text-muted small mb-2">@item.Author?.Name</div>
+
+                            @if (item.Stock > 0)
+                            {
+                                <span class="badge bg-success mb-2">In Stock</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger mb-2">Out of Stock</span>
+                            }
+
+                            <div class="mb-2">
+                                <span class="rating"><i class="bi bi-star-fill"></i></span>
+                                <span class="small text-muted">4.6</span>
+                                <span class="text-muted ms-2 small">• @item.Category</span>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <div class="price">$@item.Price</div>
+
+                                @if (item.Stock > 0)
+                                {
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post"
+                                          onclick="event.stopPropagation()">
+                                        <input type="hidden" name="bookId" value="@item.BookID" />
+                                        <button type="submit" class="btn btn-outline-primary btn-sm">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-secondary btn-sm" disabled>Out of Stock</button>
+                                }
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </a>
+                <!-- END CLICKABLE BOOK CARD -->
+
+            </div>
+        }
+
+
+    </div>
+</div>

@@ -23,8 +23,11 @@ namespace OnlineBookStore.Models
 
         public int Stock { get; set; }
 
+        [StringLength(500)]
         public string Description { get; set; }
 
+
+        [Display(Name = "Book Cover")]
         public string ImageUrl { get; set; } = string.Empty;
 
         public virtual List<OrderDetail> OrderDetails { get; set; }

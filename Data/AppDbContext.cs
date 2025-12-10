@@ -16,7 +16,7 @@ namespace OnlineBookStore.Data
         public DbSet<OrderDetail> OrdersDetails { get; set; }
         public DbSet<User> Users { get; set; }
         //rewan part
-        public DbSet<Cart> Carts { get; set; }
+       // public DbSet<Cart> Carts { get; set; }
 
     }
 }

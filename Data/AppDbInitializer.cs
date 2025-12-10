@@ -9,7 +9,6 @@
                 var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
                 context.Database.EnsureCreated();
 
-
                 // 1. Seed Authors
                 if (!context.Authors.Any())
                 {
@@ -17,13 +16,18 @@
                     {
                         new Models.Authors()
                         {
-                            Name = "F. Scott Fitzgerald",
-                            Biography = "An American novelist and short story writer, widely regarded as one of the greatest American writers of the 20th century."
+                            Name = "Holly Jackson",
+                            Biography = "British author known for the A Good Girl’s Guide to Murder series."
                         },
                         new Models.Authors()
                         {
-                            Name = "Harper Lee",
-                            Biography = "An American novelist best known for her novel To Kill a Mockingbird."
+                            Name = "Agatha Christie",
+                            Biography = "The Queen of Crime, famous for Hercule Poirot and Miss Marple mysteries."
+                        },
+                        new Models.Authors()
+                        {
+                            Name = "Charles Dickens",
+                            Biography = "One of the greatest novelists of the Victorian era."
                         }
                     });
 
@@ -33,37 +37,47 @@
                 // 2. Seed Books
                 if (!context.Books.Any())
                 {
-                    var fitzgerald = context.Authors.First(a => a.Name == "F. Scott Fitzgerald");
-                    var harperLee = context.Authors.First(a => a.Name == "Harper Lee");
+                    var hollyJackson = context.Authors.First(a => a.Name == "Holly Jackson");
+                    var agathaChristie = context.Authors.First(a => a.Name == "Agatha Christie");
+                    var charlesDickens = context.Authors.First(a => a.Name == "Charles Dickens");
 
                     context.Books.AddRange(new List<Models.Book>()
                     {
                         new Models.Book()
                         {
-                            Title = "The Great Gatsby",
-                            AuthorID = fitzgerald.AuthorID,
-                            Category = "Classic",
-                            Price = 10.99M,
-                            Stock = 20,
-                            Description = "A novel set in the Jazz Age that tells the story of Jay Gatsby's love for Daisy Buchanan.",
-                            ImageUrl = "https://example.com/images/greatgatsby.jpg"
+                            Title = "A Good Girl's Guide to Murder",
+                            AuthorID = hollyJackson.AuthorID,
+                            Category = "Mystery",
+                            Price = 14.99M,
+                            Stock = 25,
+                            Description = "A teen reopens a closed murder case, uncovering dangerous secrets.",
+                            ImageUrl = "https://upload.wikimedia.org/wikipedia/en/e/e2/A_Good_Girl%27s_Guide_to_Murder.jpg"
                         },
                         new Models.Book()
                         {
-                            Title = "To Kill a Mockingbird",
-                            AuthorID = harperLee.AuthorID,
-                            Category = "Novel",
-                            Price = 12.50M,
-                            Stock = 15,
-                            Description = "A powerful novel that deals with themes of racial injustice and childhood innocence.",
-                            ImageUrl = "https://example.com/images/mockingbird.jpg"
+                            Title = "Death on the Nile",
+                            AuthorID = agathaChristie.AuthorID,
+                            Category = "Crime",
+                            Price = 13.50M,
+                            Stock = 18,
+                            Description = "Hercule Poirot investigates a murder aboard a Nile cruise.",
+                            ImageUrl = "https://m.media-amazon.com/images/I/916EaU54GlL._AC_UF894,1000_QL80_.jpg"
+                        },
+                        new Models.Book()
+                        {
+                            Title = "Oliver Twist",
+                            AuthorID = charlesDickens.AuthorID,
+                            Category = "Classic",
+                            Price = 11.00M,
+                            Stock = 30,
+                            Description = "A young orphan faces the harsh realities of Victorian London.",
+                            ImageUrl = "https://m.media-amazon.com/images/M/MV5BMTg4MjAxMTg5N15BMl5BanBnXkFtZTcwODIzNjEzMg@@._V1_FMjpg_UX1000_.jpg"
                         }
                     });
 
                     context.SaveChanges();
                 }
 
-                
                 // 3. Seed Users
                 if (!context.Users.Any())
                 {
