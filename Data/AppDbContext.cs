@@ -19,6 +19,19 @@ namespace OnlineBookStore.Data
         //rewan part
         //public DbSet<Cart> Carts { get; set; }
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Explicitly configure Review → Book relationship
+            modelBuilder.Entity<Review>()
+                .HasOne(r => r.Book)
+                .WithMany(b => b.Reviews)
+                .HasForeignKey(r => r.BookID)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
     }
+
 }
 

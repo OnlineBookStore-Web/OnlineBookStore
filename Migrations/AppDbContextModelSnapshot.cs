@@ -17,7 +17,7 @@ namespace OnlineBookStore.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.1")
+                .HasAnnotation("ProductVersion", "10.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -151,38 +151,6 @@ namespace OnlineBookStore.Migrations
                     b.ToTable("OrdersDetails");
                 });
 
-            modelBuilder.Entity("OnlineBookStore.Models.Review", b =>
-                {
-                    b.Property<int>("ReviewID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewID"));
-
-                    b.Property<int>("BookID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ReviewID");
-
-                    b.HasIndex("BookID");
-
-                    b.ToTable("Reviews");
-                });
-
             modelBuilder.Entity("OnlineBookStore.Models.User", b =>
                 {
                     b.Property<int>("UserID")
@@ -212,6 +180,40 @@ namespace OnlineBookStore.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Review", b =>
+                {
+                    b.Property<int>("ReviewID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewID"));
+
+                    b.Property<int>("BookID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("ReviewID");
+
+                    b.HasIndex("BookID");
+
+                    b.ToTable("Reviews");
+                });
+
             modelBuilder.Entity("OnlineBookStore.Models.Book", b =>
                 {
                     b.HasOne("OnlineBookStore.Models.Authors", "Author")
@@ -226,7 +228,7 @@ namespace OnlineBookStore.Migrations
             modelBuilder.Entity("OnlineBookStore.Models.Order", b =>
                 {
                     b.HasOne("OnlineBookStore.Models.User", "User")
-                        .WithMany("Orders")
+                        .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -253,7 +255,7 @@ namespace OnlineBookStore.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("OnlineBookStore.Models.Review", b =>
+            modelBuilder.Entity("Review", b =>
                 {
                     b.HasOne("OnlineBookStore.Models.Book", "Book")
                         .WithMany("Reviews")
@@ -279,11 +281,6 @@ namespace OnlineBookStore.Migrations
             modelBuilder.Entity("OnlineBookStore.Models.Order", b =>
                 {
                     b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("OnlineBookStore.Models.User", b =>
-                {
-                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }
