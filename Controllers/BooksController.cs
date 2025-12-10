@@ -15,40 +15,56 @@ namespace OnlineBookStore.Controllers
             _context = context;
         }
 
-        // =========================
-        //        READ (Index)
-        // =========================
-        public IActionResult Index(string category, string search)
+        // =============================
+        //           INDEX
+        // =============================
+        public IActionResult Index(string search, string category, string sort)
         {
             var books = _context.Books
-                .Include(b => b.Author) // FIX #1 — load author data
+                .Include(b => b.Author)
                 .AsQueryable();
 
-            // Category filter (case-insensitive)
-            if (!string.IsNullOrEmpty(category))
+            // 🔍 Search
+            if (!string.IsNullOrWhiteSpace(search))
             {
-                books = books.Where(b => b.Category.ToLower() == category.ToLower());
+                books = books.Where(b =>
+                    b.Title.Contains(search) ||
+                    b.Author.Name.Contains(search));
             }
 
-            // Search filter (case-insensitive)
-            if (!string.IsNullOrEmpty(search))
+            // 🏷 Filter by category
+            if (!string.IsNullOrWhiteSpace(category))
             {
-                search = search.ToLower();
-                books = books.Where(b =>
-                    b.Title.ToLower().Contains(search) ||
-                    b.Author.Name.ToLower().Contains(search));
+                books = books.Where(b => b.Category == category);
+            }
+
+            // ↕ Sorting
+            switch (sort)
+            {
+                case "price_asc":
+                    books = books.OrderBy(b => b.Price);
+                    break;
+
+                case "price_desc":
+                    books = books.OrderByDescending(b => b.Price);
+                    break;
+
+                default:
+                    books = books.OrderBy(b => b.Title); // Default sort
+                    break;
             }
 
             return View(books.ToList());
         }
 
-
-        // =========================
-        //        DETAILS
-        // =========================
+        // =============================
+        //         DETAILS
+        // =============================
         public IActionResult Details(int id)
         {
-            var book = _context.Books.FirstOrDefault(b => b.BookID == id);
+            var book = _context.Books
+                .Include(b => b.Author)
+                .FirstOrDefault(b => b.BookID == id);
 
             if (book == null)
                 return NotFound();
@@ -56,9 +72,10 @@ namespace OnlineBookStore.Controllers
             return View(book);
         }
 
-        // =========================
-        //        CREATE
-        // =========================
+
+        // =============================
+        //            CREATE
+        // =============================
         public IActionResult Create()
         {
             return View();
@@ -71,15 +88,15 @@ namespace OnlineBookStore.Controllers
             if (!ModelState.IsValid)
                 return View(book);
 
-            _context.Books.Add(book);   // <<< fixed
+            _context.Books.Add(book);
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
         }
 
-        // =========================
-        //        EDIT
-        // =========================
+        // =============================
+        //             EDIT
+        // =============================
         public IActionResult Edit(int id)
         {
             var book = _context.Books.FirstOrDefault(b => b.BookID == id);
@@ -105,9 +122,9 @@ namespace OnlineBookStore.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // =========================
-        //        DELETE
-        // =========================
+        // =============================
+        //             DELETE
+        // =============================
         public IActionResult Delete(int id)
         {
             var book = _context.Books.FirstOrDefault(b => b.BookID == id);
