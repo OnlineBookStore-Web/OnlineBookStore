@@ -4,13 +4,30 @@
 }
 
 <div class="d-flex justify-content-center align-items-center py-3 m-5">
-    <div class="container" style="max-width: 500px;">
+    <div class="container" style="max-width: 550px;">
         <div class="card shadow-lg rounded-4">
             <div class="card-body p-4">
                 <div class="text-center mb-4">
                     <h2 class="fw-bold text-primary">Sign In</h2>
                     <p class="text-muted">Enter your credentials to access your account</p>
                 </div>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      
+                        <ul>
+                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                            {
+                                <li>@error.ErrorMessage</li>
+                            }
+                        </ul>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+
                 <form asp-action="Login" method="post">
                     <div class="mb-3">
                         <label asp-for="Email" class="form-label fw-bold text-primary"></label>
