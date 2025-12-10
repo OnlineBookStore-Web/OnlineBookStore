@@ -1,52 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Projects\\Web Development\\OnlineBookStore\\",
+  "WorkspaceRootPath": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Projects\\Web Development\\OnlineBookStore\\Migrations\\20251207003955_CartTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251207003955_CartTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Migrations\\20251209140809_roleinUsers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251209140809_roleinUsers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\onlinebookstore.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:onlinebookstore.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\shrou\\source\\repos\\onlinebookstore\\new folder\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\shrou\\source\\repos\\onlinebookstore\\new folder\\views\\home\\welcome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\home\\welcome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\shrou\\source\\repos\\onlinebookstore\\new folder\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\views\\userss\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\userss\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\views\\userss\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\userss\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\controllers\\usersscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:controllers\\usersscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\models\\authors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:models\\authors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\views\\authors\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\authors\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\shrou\\source\\repos\\onlinebookstore\\new folder\\controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:controllers\\authorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -57,11 +30,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20251209140809_roleinUsers.cs",
+              "DocumentMoniker": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Migrations\\20251209140809_roleinUsers.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251209140809_roleinUsers.cs",
+              "ToolTip": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Migrations\\20251209140809_roleinUsers.cs",
+              "RelativeToolTip": "Migrations\\20251209140809_roleinUsers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T14:08:09.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Models\\Users.cs",
+              "RelativeDocumentMoniker": "Models\\Users.cs",
+              "ToolTip": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Models\\Users.cs",
+              "RelativeToolTip": "Models\\Users.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T02:22:54.247Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -73,143 +68,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20251207003955_CartTable.cs",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Migrations\\20251207003955_CartTable.cs",
-              "RelativeDocumentMoniker": "Migrations\\20251207003955_CartTable.cs",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Migrations\\20251207003955_CartTable.cs",
-              "RelativeToolTip": "Migrations\\20251207003955_CartTable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T00:39:55.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAuAAAAAAAAAA==",
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAIwBsAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T00:31:18.142Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-12-07T00:30:01.928Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\10.0.100\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "ViewState": "AgIAAJgCAAAAAAAAAAAwwKsCAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-12-07T00:21:44.827Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Userss\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Userss\\Create.cshtml",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Userss\\Create.cshtml",
-              "RelativeToolTip": "Views\\Userss\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T00:17:47.806Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Userss\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Userss\\Edit.cshtml",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Userss\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Userss\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-07T00:17:43.184Z"
+              "WhenOpened": "2025-12-09T02:12:03.227Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "cart.cs",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Models\\cart.cs",
-              "RelativeDocumentMoniker": "Models\\cart.cs",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Models\\cart.cs",
-              "RelativeToolTip": "Models\\cart.cs",
+              "Title": "Welcome.cshtml",
+              "DocumentMoniker": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Views\\Home\\Welcome.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Welcome.cshtml",
+              "ToolTip": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Views\\Home\\Welcome.cshtml",
+              "RelativeToolTip": "Views\\Home\\Welcome.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T00:17:03.777Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "UserssController.cs",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Controllers\\UserssController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserssController.cs",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Controllers\\UserssController.cs",
-              "RelativeToolTip": "Controllers\\UserssController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-07T00:14:02.957Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OnlineBookStore.csproj",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
-              "RelativeDocumentMoniker": "OnlineBookStore.csproj",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
-              "RelativeToolTip": "OnlineBookStore.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-12-06T23:33:03.206Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-09T01:58:24.684Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Authors.cs",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Models\\Authors.cs",
-              "RelativeDocumentMoniker": "Models\\Authors.cs",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Models\\Authors.cs",
-              "RelativeToolTip": "Models\\Authors.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T22:33:55.978Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Authors\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Authors\\Index.cshtml",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Authors\\Index.cshtml",
-              "RelativeToolTip": "Views\\Authors\\Index.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-04T22:26:03.474Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 4,
               "Title": "AuthorsController.cs",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Controllers\\AuthorsController.cs",
+              "DocumentMoniker": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Controllers\\AuthorsController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthorsController.cs",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Controllers\\AuthorsController.cs",
+              "ToolTip": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Controllers\\AuthorsController.cs",
               "RelativeToolTip": "Controllers\\AuthorsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
