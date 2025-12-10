@@ -64,12 +64,37 @@ namespace OnlineBookStore.Controllers
         {
             var book = _context.Books
                 .Include(b => b.Author)
+                .Include(b => b.Reviews)
                 .FirstOrDefault(b => b.BookID == id);
 
             if (book == null)
                 return NotFound();
 
             return View(book);
+        }
+
+        // =============================
+        //        ADD REVIEW
+        // =============================
+        [HttpPost]
+        public IActionResult AddReview(int bookId, string userName, int rating, string comment)
+        {
+            if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(comment))
+                return RedirectToAction("Details", new { id = bookId });
+
+            var review = new Review
+            {
+                BookID = bookId,
+                UserName = userName,
+                Rating = rating,
+                Comment = comment,
+                CreatedAt = DateTime.Now
+            };
+
+            _context.Reviews.Add(review);
+            _context.SaveChanges();
+
+            return RedirectToAction("Details", new { id = bookId });
         }
 
 
