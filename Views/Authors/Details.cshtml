@@ -1,0 +1,31 @@
+﻿@model OnlineBookStore.Models.Authors
+
+@{
+    ViewData["Title"] = "Author Details";
+}
+
+<h2>@Model.Name</h2>
+<hr />
+
+<p><strong>Biography:</strong></p>
+<p>@Model.Biography</p>
+
+<h4 class="mt-4">Books by this Author:</h4>
+
+@if (Model.Books != null && Model.Books.Any())
+{
+    <ul class="list-group">
+        @foreach (var book in Model.Books)
+        {
+            <li class="list-group-item">
+                @book.Title
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p class="text-muted">No books available.</p>
+}
+
+<a asp-action="Index" class="btn btn-secondary mt-3">Back</a>
