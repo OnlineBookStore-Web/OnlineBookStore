@@ -50,6 +50,7 @@
                             Category = "Mystery",
                             Price = 14.99M,
                             Stock = 25,
+                            Sales = 150,
                             Description = "A teen reopens a closed murder case, uncovering dangerous secrets.",
                             ImageUrl = "https://upload.wikimedia.org/wikipedia/en/e/e2/A_Good_Girl%27s_Guide_to_Murder.jpg"
                         },
@@ -60,6 +61,7 @@
                             Category = "Crime",
                             Price = 13.50M,
                             Stock = 18,
+                            Sales =50,
                             Description = "Hercule Poirot investigates a murder aboard a Nile cruise.",
                             ImageUrl = "https://m.media-amazon.com/images/I/916EaU54GlL._AC_UF894,1000_QL80_.jpg"
                         },
@@ -70,6 +72,7 @@
                             Category = "Classic",
                             Price = 11.00M,
                             Stock = 30,
+                            Sales =200,
                             Description = "A young orphan faces the harsh realities of Victorian London.",
                             ImageUrl = "https://m.media-amazon.com/images/M/MV5BMTg4MjAxMTg5N15BMl5BanBnXkFtZTcwODIzNjEzMg@@._V1_FMjpg_UX1000_.jpg"
                         }

@@ -34,5 +34,7 @@ namespace OnlineBookStore.Models
 
         public List<Review> Reviews { get; set; }
 
+        public int Sales { get; set; } = 0; // tracks popularity
+
     }
 }
