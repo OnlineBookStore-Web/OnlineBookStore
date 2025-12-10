@@ -31,5 +31,8 @@ namespace OnlineBookStore.Models
         public string ImageUrl { get; set; } = string.Empty;
 
         public virtual List<OrderDetail> OrderDetails { get; set; }
+
+        public List<Review> Reviews { get; set; }
+
     }
 }

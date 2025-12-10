@@ -1,0 +1,151 @@
+﻿@model OnlineBookStore.Models.Book
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<style>
+    .book-cover {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .price-tag {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #2575fc;
+    }
+
+    .section-title {
+        font-weight: 600;
+        margin-top: 25px;
+    }
+</style>
+
+<div class="container mt-4">
+
+    <div class="row">
+
+        <!-- LEFT SIDE: BOOK IMAGE -->
+        <div class="col-md-4">
+            <img src="@Model.ImageUrl" class="book-cover" alt="@Model.Title" />
+        </div>
+
+        <!-- RIGHT SIDE: BOOK INFO -->
+        <div class="col-md-8">
+
+            <h2>@Model.Title</h2>
+
+            <p class="text-muted">
+                By <strong>@Model.Author?.Name</strong>
+            </p>
+
+            <span class="badge bg-secondary">@Model.Category</span>
+
+            <div class="my-3">
+                <span class="price-tag">$@Model.Price</span>
+            </div>
+
+            @if (Model.Stock > 0)
+            {
+                <span class="badge bg-success">In Stock</span>
+            }
+            else
+            {
+                <span class="badge bg-danger">Out of Stock</span>
+            }
+
+            <hr />
+
+            <h4 class="section-title">Description</h4>
+            <p>@Model.Description</p>
+
+            <hr />
+
+            <!-- Add to Cart -->
+            @if (Model.Stock > 0)
+            {
+                <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                    <input type="hidden" name="bookId" value="@Model.BookID" />
+                    <button class="btn btn-primary btn-lg mt-2">
+                        <i class="bi bi-cart-plus"></i> Add to Cart
+                    </button>
+                </form>
+            }
+            else
+            {
+                <button class="btn btn-secondary btn-lg mt-2" disabled>
+                    Out of Stock
+                </button>
+            }
+
+            <hr />
+
+            <!-- BACK BUTTON -->
+            <a asp-action="Index" class="btn btn-outline-dark">
+                ← Back to Books
+            </a>
+
+        </div>
+    </div>
+
+    <h4 class="mt-4">Reviews</h4>
+
+    @if (Model.Reviews.Any())
+    {
+        foreach (var r in Model.Reviews.OrderByDescending(x => x.CreatedAt))
+        {
+            <div class="border rounded p-3 mb-3">
+                <strong>@r.UserName</strong>
+                <span class="text-warning">
+                    @for (int i = 0; i < r.Rating; i++)
+                    {
+                        <i class="bi bi-star-fill"></i>
+                    }
+                </span>
+                <div>@r.Comment</div>
+                <small class="text-muted">@r.CreatedAt.ToShortDateString()</small>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="text-muted">No reviews yet.</p>
+    }
+
+
+    <hr />
+
+    <h4>Add a Review</h4>
+
+    <form asp-action="AddReview" asp-controller="Books" method="post">
+
+        <input type="hidden" name="bookId" value="@Model.BookID" />
+
+        <div class="mb-3">
+            <label>Your Name</label>
+            <input type="text" name="userName" class="form-control" required />
+        </div>
+
+        <div class="mb-3">
+            <label>Rating</label>
+            <select name="rating" class="form-select" required>
+                <option value="5">★★★★★ – 5</option>
+                <option value="4">★★★★☆ – 4</option>
+                <option value="3">★★★☆☆ – 3</option>
+                <option value="2">★★☆☆☆ – 2</option>
+                <option value="1">★☆☆☆☆ – 1</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Comment</label>
+            <textarea name="comment" class="form-control" rows="4" required></textarea>
+        </div>
+
+        <button class="btn btn-primary">Submit Review</button>
+    </form>
+
+
+</div>
