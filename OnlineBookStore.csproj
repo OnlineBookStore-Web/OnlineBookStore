@@ -27,7 +27,6 @@
 
 	<ItemGroup>
 		<Folder Include="OnlineBookStore-db\" />
-		<Folder Include="Views\order\" />
 	</ItemGroup>
 
 </Project>
