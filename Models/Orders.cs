@@ -22,5 +22,14 @@ namespace OnlineBookStore.Models
 
         // Navigation Property
         public virtual List<OrderDetail> OrderDetails { get; set; }
+        //rewan part
+        [Required]
+        [StringLength(50)]
+        public string Status { get; set; } = "Pending";  // Pending, Confirmed, Shipped, Delivered, Cancelled
+
+   
+        [StringLength(500)]
+        public string ShippingAddress { get; set; }
+
     }
 }
