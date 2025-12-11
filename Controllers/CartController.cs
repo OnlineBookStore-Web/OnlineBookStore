@@ -27,21 +27,22 @@ public class CartController : Controller
     [HttpPost]
     public IActionResult AddToCart(int bookID)
     {
+        // Prevent access if user is not logged in
         if (!User.Identity.IsAuthenticated)
         {
-            // Redirect non-logged-in users to Login page
+            TempData["LoginRequired"] = "You must sign in before adding items to your cart.";
             return RedirectToAction("Login", "Account");
         }
 
-        // Check if the item is already in the cart
+        // Check if the item already exists in the cart
         var item = cart.FirstOrDefault(c => c.BookID == bookID);
+
         if (item != null)
         {
-            item.Quantity += 1; // Increase quantity
+            item.Quantity += 1;
         }
         else
         {
-            // Get book info from database
             var book = _context.Books.FirstOrDefault(b => b.BookID == bookID);
             if (book == null)
                 return NotFound();
@@ -55,8 +56,10 @@ public class CartController : Controller
             });
         }
 
-        return RedirectToAction("Index");
+        // Redirect back to the book details page after adding
+        return RedirectToAction("Details", "Books", new { id = bookID });
     }
+
 
     // Update quantity of a cart item
     [HttpPost]
