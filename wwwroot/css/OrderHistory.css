@@ -1,0 +1,27 @@
+﻿/* Checkout Form */
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+    form .mb-3 label {
+        font-weight: bold;
+    }
+
+/* Order History Table */
+table.table {
+    margin-top: 20px;
+}
+
+    table.table th, table.table td {
+        text-align: center;
+    }
+
+        table.table td a.btn {
+            margin: 0 5px;
+        }
+
+/* Alerts */
+.alert-info {
+    margin-top: 20px;
+}

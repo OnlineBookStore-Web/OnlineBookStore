@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj": {}
+    "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj": {
+    "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj",
+        "projectUniqueName": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
         "projectName": "OnlineBookStore",
-        "projectPath": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj",
-        "packagesPath": "C:\\Users\\shrou\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\obj\\",
+        "projectPath": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
+        "packagesPath": "C:\\Users\\rowan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\shrou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rowan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -51,6 +50,12 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "Microsoft.CodeAnalysis.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.11.0, )"
+            },
             "Microsoft.CodeAnalysis.CSharp": {
               "target": "Package",
               "version": "[4.14.0, )"
