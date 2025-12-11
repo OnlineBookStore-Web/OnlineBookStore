@@ -64,21 +64,34 @@
             <hr />
 
             <!-- Add to Cart -->
-            @if (Model.Stock > 0)
+            @if (User.Identity.IsAuthenticated)
             {
-                <form asp-controller="Cart" asp-action="AddToCart" method="post">
-                    <input type="hidden" name="bookId" value="@Model.BookID" />
-                    <button class="btn btn-primary btn-lg mt-2">
-                        <i class="bi bi-cart-plus"></i> Add to Cart
+                @* User is logged in → allow adding to cart *@
+                @if (Model.Stock > 0)
+                {
+                    <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                        <input type="hidden" name="bookId" value="@Model.BookID" />
+                        <button class="btn btn-primary btn-lg mt-2">
+                            <i class="bi bi-cart-plus"></i> Add to Cart
+                        </button>
+                    </form>
+                }
+                else
+                {
+                    <button class="btn btn-secondary btn-lg mt-2" disabled>
+                        Out of Stock
                     </button>
-                </form>
+                }
             }
             else
             {
-                <button class="btn btn-secondary btn-lg mt-2" disabled>
-                    Out of Stock
+                @* User is NOT logged in → show alert *@
+                <button class="btn btn-primary btn-lg mt-2"
+                        onclick="alert('You must sign in first to add items to your cart!');">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
                 </button>
             }
+
 
             <hr />
 
@@ -146,6 +159,11 @@
 
         <button class="btn btn-primary">Submit Review</button>
     </form>
-
+    <script>
+        function showLoginAlert() {
+            alert("⚠ You must sign in before adding items to your cart.");
+        }
+    </script>
 
 </div>
+

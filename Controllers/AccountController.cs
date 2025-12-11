@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +16,9 @@ public class AccountController : Controller
         _context = context;
     }
 
+    // ============================
     // REGISTER
+    // ============================
     [HttpGet]
     public IActionResult Register()
     {
@@ -26,7 +28,8 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Register(User model)
     {
-        if (!ModelState.IsValid) return View(model);
+        if (!ModelState.IsValid)
+            return View(model);
 
         if (_context.Users.Any(u => u.Email == model.Email))
         {
@@ -41,8 +44,9 @@ public class AccountController : Controller
         return RedirectToAction("Login");
     }
 
-
+    // ============================
     // LOGIN
+    // ============================
     [HttpGet]
     public IActionResult Login()
     {
@@ -57,6 +61,7 @@ public class AccountController : Controller
         if (user != null)
         {
             var result = _passwordHasher.VerifyHashedPassword(user, user.Password, password);
+
             if (result == PasswordVerificationResult.Success)
             {
                 // Create Claims
@@ -80,7 +85,9 @@ public class AccountController : Controller
         return View();
     }
 
+    // ============================
     // PROFILE
+    // ============================
     [HttpGet]
     public IActionResult Profile()
     {
@@ -93,7 +100,9 @@ public class AccountController : Controller
         return View(user);
     }
 
-    // EDIT PROFILE 
+    // ============================
+    // EDIT PROFILE
+    // ============================
     [HttpGet]
     public IActionResult EditProfile()
     {
@@ -103,9 +112,10 @@ public class AccountController : Controller
         int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var user = _context.Users.Find(userId);
 
-        if (user == null) return NotFound();
+        if (user == null)
+            return NotFound();
 
-        user.Password = ""; 
+        user.Password = "";
         return View(user);
     }
 
@@ -115,11 +125,8 @@ public class AccountController : Controller
         if (!User.Identity.IsAuthenticated)
             return RedirectToAction("Login");
 
-
         if (string.IsNullOrWhiteSpace(model.Password))
-        {
             ModelState.Remove("Password");
-        }
 
         if (!ModelState.IsValid)
             return View(model);
@@ -127,7 +134,8 @@ public class AccountController : Controller
         int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var user = _context.Users.Find(userId);
 
-        if (user == null) return NotFound();
+        if (user == null)
+            return NotFound();
 
         // Check email uniqueness
         if (_context.Users.Any(u => u.Email == model.Email && u.UserID != userId))
@@ -136,22 +144,20 @@ public class AccountController : Controller
             return View(model);
         }
 
-        // Update allowed fields only
         user.FullName = model.FullName;
         user.Email = model.Email;
 
         if (!string.IsNullOrWhiteSpace(model.Password))
-        {
             user.Password = _passwordHasher.HashPassword(user, model.Password);
-        }
 
         await _context.SaveChangesAsync();
 
         return RedirectToAction("Profile");
     }
 
-
+    // ============================
     // LOGOUT
+    // ============================
     public async Task<IActionResult> Logout()
     {
         await HttpContext.SignOutAsync();
