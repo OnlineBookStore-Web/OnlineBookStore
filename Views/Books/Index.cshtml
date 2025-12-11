@@ -1,1 +1,111 @@
-﻿
+﻿@model IEnumerable<OnlineBookStore.Models.Book>
+
+@{
+    ViewData["Title"] = "Books";
+
+    string selectedSort = Context.Request.Query["sort"];
+}
+
+<style>
+    .hero {
+        background: linear-gradient(90deg, #6a11cb, #2575fc);
+        color: #fff;
+        padding: 45px 25px;
+        border-radius: 6px;
+        margin-bottom: 35px;
+    }
+</style>
+
+<div class="hero">
+    <div class="container">
+        <h1 class="h3">Discover Your Next Favorite Book</h1>
+        <p>Browse thousands of books across categories — tech, classics, history, and more.</p>
+    </div>
+</div>
+
+<!-- SORT ONLY -->
+<div class="container mb-4">
+    <form method="get" class="row g-2">
+
+        <!-- keep the category when sorting -->
+        <input type="hidden" name="category" value="@Context.Request.Query["category"]" />
+
+        <div class="col-md-3">
+            <select name="sort" class="form-select" onchange="this.form.submit()">
+                <option value="">Sort by...</option>
+
+                <option value="price_asc"
+                        selected="@(selectedSort == "price_asc")">
+                    Price: Low → High
+                </option>
+
+                <option value="price_desc"
+                        selected="@(selectedSort == "price_desc")">
+                    Price: High → Low
+                </option>
+                <option value="popularity"
+                        selected="@(selectedSort == "popularity")">
+                    Popularity
+                </option>
+
+            </select>
+        </div>
+
+    </form>
+</div>
+
+<div class="container">
+    <div class="row g-4">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <a asp-controller="Books" asp-action="Details" asp-route-id="@item.BookID" class="text-decoration-none text-dark">
+                    <div class="book-card d-flex flex-column">
+
+                        <img src="@item.ImageUrl" class="book-image" alt="@item.Title" />
+
+                        <div class="p-3 d-flex flex-column">
+
+                            <h5 class="mb-1">@item.Title</h5>
+                            <div class="text-muted small mb-2">@item.Author?.Name</div>
+
+                            @if (item.Stock > 0)
+                                { <span class="badge bg-success">In Stock</span> }
+                            else
+                                { <span class="badge bg-danger">Out of Stock</span> }
+
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div class="price">$@item.Price</div>
+
+                                @if (User.Identity.IsAuthenticated && item.Stock > 0)
+                                {
+                                    <form asp-controller="Cart" asp-action="AddToCart" method="post" onclick="event.stopPropagation()">
+                                        <input type="hidden" name="bookId" value="@item.BookID" />
+                                        <button type="submit" class="btn btn-outline-primary btn-sm">
+                                            <i class="bi bi-cart-plus"></i>
+                                        </button>
+                                    </form>
+                                }
+                                else if (item.Stock > 0)
+                                {
+                                    <button class="btn btn-secondary btn-sm" disabled title="Log in to add to cart">
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-secondary btn-sm" disabled>Out of Stock</button>
+                                }
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+</div>
