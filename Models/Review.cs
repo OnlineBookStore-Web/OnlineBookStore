@@ -1,26 +1,27 @@
-﻿using System;
+﻿using OnlineBookStore.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace OnlineBookStore.Models
+public class Review
 {
-    public class Review
-    {
-        public int ReviewID { get; set; }
+    [Key]
+    public int ReviewID { get; set; }
 
-        [Required]
-        public string UserName { get; set; }  // name displayed
+    [Required]
+    public int BookID { get; set; }
+    public Book Book { get; set; }
 
-        [Required]
-        [Range(1, 5)]
-        public int Rating { get; set; }
+    [Required]
+    [StringLength(100)]
+    public string UserName { get; set; }
 
-        [Required]
-        public string Comment { get; set; }
+    [Required]
+    [Range(1, 5)]
+    public int Rating { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+    [Required]
+    [StringLength(1000)]
+    public string Comment { get; set; }
 
-        // FK
-        public int BookID { get; set; }
-        public Book Book { get; set; }
-    }
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
 }

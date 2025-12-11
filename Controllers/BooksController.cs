@@ -49,6 +49,10 @@ namespace OnlineBookStore.Controllers
                     books = books.OrderByDescending(b => b.Price);
                     break;
 
+                case "popularity":
+                    books = books.OrderByDescending(b => b.Sales);
+                    break;
+
                 default:
                     books = books.OrderBy(b => b.Title); // Default sort
                     break;

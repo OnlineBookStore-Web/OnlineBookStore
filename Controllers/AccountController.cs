@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Identity;
 using OnlineBookStore.Models;
 using OnlineBookStore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+=======
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using OnlineBookStore.Data;
+using OnlineBookStore.Models;
+using System.Security.Claims;
+>>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
 
 public class AccountController : Controller
 {
@@ -14,7 +24,11 @@ public class AccountController : Controller
         _context = context;
     }
 
+<<<<<<< HEAD
     // Register 
+=======
+    // REGISTER
+>>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
     [HttpGet]
     public IActionResult Register()
     {
@@ -33,14 +47,21 @@ public class AccountController : Controller
         }
 
         model.Password = _passwordHasher.HashPassword(model, model.Password);
-
         _context.Users.Add(model);
         await _context.SaveChangesAsync();
 
+<<<<<<< HEAD
         return RedirectToAction("Login", "Account");
     }
 
     // Login 
+=======
+        return RedirectToAction("Login");
+    }
+
+
+    // LOGIN
+>>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
     [HttpGet]
     public IActionResult Login()
     {
@@ -48,15 +69,32 @@ public class AccountController : Controller
     }
 
     [HttpPost]
-    public IActionResult Login(string email, string password)
+    public async Task<IActionResult> Login(string email, string password)
     {
         var user = _context.Users.FirstOrDefault(u => u.Email == email);
+
         if (user != null)
         {
             var result = _passwordHasher.VerifyHashedPassword(user, user.Password, password);
             if (result == PasswordVerificationResult.Success)
             {
+<<<<<<< HEAD
                 HttpContext.Session.SetInt32("UserID", user.UserID);
+=======
+                // Create Claims
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString()),
+                    new Claim(ClaimTypes.Name, user.FullName ?? user.Email)
+                };
+
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+
+                // Sign In
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+>>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -65,50 +103,78 @@ public class AccountController : Controller
         return View();
     }
 
+<<<<<<< HEAD
+=======
+    // PROFILE
+    [HttpGet]
+>>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
     public IActionResult Profile()
     {
-        int? userId = HttpContext.Session.GetInt32("UserID");
-        if (userId == null) return RedirectToAction("Login");
+        if (!User.Identity.IsAuthenticated)
+            return RedirectToAction("Login");
 
-        var user = _context.Users.Find(userId.Value);
+        int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var user = _context.Users.Find(userId);
+
         return View(user);
     }
 
+<<<<<<< HEAD
+=======
+    // EDIT PROFILE 
+>>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
     [HttpGet]
-    public IActionResult EditProfile(int id)
+    public IActionResult EditProfile()
     {
-        var user = _context.Users.Find(id);
+        if (!User.Identity.IsAuthenticated)
+            return RedirectToAction("Login");
+
+        int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var user = _context.Users.Find(userId);
+
         if (user == null) return NotFound();
 
-        user.Password = string.Empty;
+        user.Password = ""; 
         return View(user);
     }
 
     [HttpPost]
     public async Task<IActionResult> EditProfile(User model)
     {
-        if (!ModelState.IsValid) return View(model);
+        if (!User.Identity.IsAuthenticated)
+            return RedirectToAction("Login");
 
-        var user = await _context.Users.FindAsync(model.UserID);
+
+        if (string.IsNullOrWhiteSpace(model.Password))
+        {
+            ModelState.Remove("Password");
+        }
+
+        if (!ModelState.IsValid)
+            return View(model);
+
+        int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var user = _context.Users.Find(userId);
+
         if (user == null) return NotFound();
 
-        if (_context.Users.Any(u => u.Email == model.Email && u.UserID != model.UserID))
+        // Check email uniqueness
+        if (_context.Users.Any(u => u.Email == model.Email && u.UserID != userId))
         {
             ModelState.AddModelError("Email", "Email already exists");
             return View(model);
         }
 
+        // Update allowed fields only
         user.FullName = model.FullName;
         user.Email = model.Email;
 
+<<<<<<< HEAD
         if (!string.IsNullOrEmpty(model.Password))
+=======
+        if (!string.IsNullOrWhiteSpace(model.Password))
+>>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
         {
-            if (model.Password.Length < 6)
-            {
-                ModelState.AddModelError("Password", "Password must be at least 6 characters");
-                return View(model);
-            }
-
             user.Password = _passwordHasher.HashPassword(user, model.Password);
         }
 
@@ -117,9 +183,15 @@ public class AccountController : Controller
         return RedirectToAction("Profile");
     }
 
+<<<<<<< HEAD
     public IActionResult Logout()
+=======
+
+    // LOGOUT
+    public async Task<IActionResult> Logout()
+>>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
     {
-        HttpContext.Session.Clear();
+        await HttpContext.SignOutAsync();
         return RedirectToAction("Login");
     }
 }

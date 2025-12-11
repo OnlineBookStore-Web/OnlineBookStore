@@ -43,6 +43,11 @@
                         selected="@(selectedSort == "price_desc")">
                     Price: High → Low
                 </option>
+                <option value="popularity"
+                        selected="@(selectedSort == "popularity")">
+                    Popularity
+                </option>
+
             </select>
         </div>
 
@@ -73,7 +78,7 @@
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <div class="price">$@item.Price</div>
 
-                                @if (item.Stock > 0)
+                                @if (User.Identity.IsAuthenticated && item.Stock > 0)
                                 {
                                     <form asp-controller="Cart" asp-action="AddToCart" method="post" onclick="event.stopPropagation()">
                                         <input type="hidden" name="bookId" value="@item.BookID" />
@@ -82,10 +87,17 @@
                                         </button>
                                     </form>
                                 }
+                                else if (item.Stock > 0)
+                                {
+                                    <button class="btn btn-secondary btn-sm" disabled title="Log in to add to cart">
+                                        <i class="bi bi-cart-plus"></i>
+                                    </button>
+                                }
                                 else
                                 {
                                     <button class="btn btn-secondary btn-sm" disabled>Out of Stock</button>
                                 }
+
                             </div>
 
                         </div>
