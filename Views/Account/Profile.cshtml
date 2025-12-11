@@ -18,12 +18,12 @@
 
                 <div class="mb-3">
                     <label asp-for="FullName" class="form-label fw-bold text-primary"></label>
-                    <input asp-for="FullName" class="form-control rounded-pill" value="@Model.FullName" readonly />
+                    <input asp-for="FullName" class="form-control rounded-pill" readonly />
                 </div>
 
                 <div class="mb-3">
                     <label asp-for="Email" class="form-label fw-bold text-primary"></label>
-                    <input asp-for="Email" class="form-control rounded-pill" value="@Model.Email" readonly />
+                    <input asp-for="Email" class="form-control rounded-pill"  readonly />
                 </div>
 
 
@@ -37,7 +37,7 @@
                        class="btn btn-primary rounded-pill px-4">
                         Edit Profile
                     </a>
-                    <a asp-action="Logout" asp-route-id="@Model.UserID"
+                    <a asp-action="Logout"
                        class="btn btn-outline-danger rounded-pill px-4">
                         Logout
                     </a>
