@@ -1,5 +1,21 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "My Cart";
 }
+
+<h1>My Cart</h1>
+
+<div class="cart-container">
+
+    <div class="cart-items">
+        <!-- Items will appear here from Model -->
+        <p>Your cart is empty.</p>
+    </div>
+
+    <div class="cart-summary">
+        <h3>Total:</h3>
+        <p>@ViewBag.TotalPrice EGP</p>
+
+        <a class="btn btn-primary" href="/Order/Checkout">Proceed to Checkout</a>
+    </div>
+
+</div>

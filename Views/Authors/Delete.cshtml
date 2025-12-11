@@ -1,0 +1,19 @@
+﻿@model OnlineBookStore.Models.Authors
+
+<h2>Delete Author</h2>
+<hr />
+
+<div class="alert alert-danger">
+    Are you sure you want to delete this author?
+</div>
+
+<div>
+    <strong>@Model.Name</strong>
+    <p>@Model.Biography</p>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="AuthorID" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

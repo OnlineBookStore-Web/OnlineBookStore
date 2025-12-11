@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Authors List";
+    var isAdmin = User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin");
 }
 
 <div class="row">
@@ -12,8 +13,8 @@
                 <tr class="text-center">
                     <th>@Html.DisplayNameFor(model => model.Name)</th>
                     <th>@Html.DisplayNameFor(model => model.Biography)</th>
-
-                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    
+                    @if (isAdmin)
                     {
                         <th>Actions</th>
                     }
@@ -33,7 +34,7 @@
                             @Html.DisplayFor(modelItem => item.Biography)
                         </td>
 
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        @if (isAdmin)
                         {
                             <td class="align-middle">
                                 <a class="btn btn-outline-primary"

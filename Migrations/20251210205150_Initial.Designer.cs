@@ -12,15 +12,15 @@ using OnlineBookStore.Data;
 namespace OnlineBookStore.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251204215801_AddAuthorTable")]
-    partial class AddAuthorTable
+    [Migration("20251210205150_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.0")
+                .HasAnnotation("ProductVersion", "10.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -66,7 +66,8 @@ namespace OnlineBookStore.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("ImageUrl")
                         .IsRequired()
@@ -100,6 +101,16 @@ namespace OnlineBookStore.Migrations
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ShippingAddress")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
@@ -143,6 +154,38 @@ namespace OnlineBookStore.Migrations
                     b.ToTable("OrdersDetails");
                 });
 
+            modelBuilder.Entity("OnlineBookStore.Models.Review", b =>
+                {
+                    b.Property<int>("ReviewID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewID"));
+
+                    b.Property<int>("BookID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ReviewID");
+
+                    b.HasIndex("BookID");
+
+                    b.ToTable("Reviews");
+                });
+
             modelBuilder.Entity("OnlineBookStore.Models.User", b =>
                 {
                     b.Property<int>("UserID")
@@ -165,8 +208,7 @@ namespace OnlineBookStore.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserID");
 
@@ -214,6 +256,17 @@ namespace OnlineBookStore.Migrations
                     b.Navigation("Order");
                 });
 
+            modelBuilder.Entity("OnlineBookStore.Models.Review", b =>
+                {
+                    b.HasOne("OnlineBookStore.Models.Book", "Book")
+                        .WithMany("Reviews")
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+                });
+
             modelBuilder.Entity("OnlineBookStore.Models.Authors", b =>
                 {
                     b.Navigation("Books");
@@ -222,6 +275,8 @@ namespace OnlineBookStore.Migrations
             modelBuilder.Entity("OnlineBookStore.Models.Book", b =>
                 {
                     b.Navigation("OrderDetails");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("OnlineBookStore.Models.Order", b =>

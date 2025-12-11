@@ -5,11 +5,12 @@ var builder = WebApplication.CreateBuilder(args);
 //Dbcontext configuration (Sara)
 builder.Services.AddDbContext<OnlineBookStore.Data.AppDbContext>(options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnectionString")));
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddSession();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,7 +21,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection(); 
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();
