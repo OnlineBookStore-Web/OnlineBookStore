@@ -3979,39 +3979,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Sara Omran\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\rowan\\.nuget\\packages\\": {},
->>>>>>> 0a2c7ec681b1b0531d984c3b6661c9e0f90ea39d
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
       "projectName": "OnlineBookStore",
       "projectPath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
       "packagesPath": "C:\\Users\\Sara Omran\\.nuget\\packages\\",
       "outputPath": "D:\\Projects\\Web Development\\OnlineBookStore\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
-      "projectName": "OnlineBookStore",
-      "projectPath": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
-      "packagesPath": "C:\\Users\\rowan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\obj\\",
->>>>>>> 0a2c7ec681b1b0531d984c3b6661c9e0f90ea39d
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\Sara Omran\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\rowan\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 0a2c7ec681b1b0531d984c3b6661c9e0f90ea39d
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
