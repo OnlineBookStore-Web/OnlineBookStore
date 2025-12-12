@@ -19,145 +19,149 @@ build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v10.0
 build_property.RootNamespace = OnlineBookStore
 build_property.RootNamespace = OnlineBookStore
-build_property.ProjectDir = D:\Projects\Web Development\OnlineBookStore\
+build_property.ProjectDir = C:\Users\shrou\source\repos\OnlineBookStore\New folder\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Projects\Web Development\OnlineBookStore
+build_property.MSBuildProjectDirectory = C:\Users\shrou\source\repos\OnlineBookStore\New folder
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Account/EditProfile.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Account/AdminLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBZG1pbkxvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Account/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0UHJvZmlsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Account/Login.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Account/Profile.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Account/Register.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Admin/Book.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Admin/Book.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9vay5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Admin/Index.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Admin/Order.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Admin/Order.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Admin/User.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Admin/User.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Authors/Create.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Authors/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Authors/Delete.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Authors/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Authors/Details.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Authors/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Authors/Edit.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Authors/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Authors/Index.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Authors/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Books/Create.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Books/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Books/Delete.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Books/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Books/Details.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Books/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Books/Edit.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Books/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Books/Index.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Books/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Categories/Create.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Categories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Categories/Delete.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Categories/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Categories/Details.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Categories/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Categories/Edit.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Categories/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Categories/Index.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Categories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Home/Index.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Home/Privacy.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Orders/Checkout.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Orders/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXENoZWNrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Orders/OrderHistory.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Orders/OrderHistory.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJzXE9yZGVySGlzdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Shared/Error.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Shared/_CategoriesList.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Shared/_CategoriesList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYXRlZ29yaWVzTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/_ViewImports.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/_ViewStart.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Projects/Web Development/OnlineBookStore/Views/Shared/_Layout.cshtml]
+[C:/Users/shrou/source/repos/OnlineBookStore/New folder/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-4m6veqrekj
