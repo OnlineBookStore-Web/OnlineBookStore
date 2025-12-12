@@ -54,8 +54,8 @@ namespace OnlineBookStore.Controllers
             ViewBag.Categories = _context.Categories.ToList(); // ⭐ send categories to view
             ViewBag.SelectedCategory = category;
             ViewBag.SelectedCategoryName = category.HasValue
-     ? _context.Categories.FirstOrDefault(c => c.CategoryId == category.Value)?.Name
-     : "All Categories";
+            ? _context.Categories.FirstOrDefault(c => c.CategoryId == category.Value)?.Name
+            : "All Categories";
 
             return View(books.ToList());
         }
