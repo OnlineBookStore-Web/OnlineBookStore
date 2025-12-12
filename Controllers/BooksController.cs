@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineBookStore.Data;
 using OnlineBookStore.Models;
@@ -18,48 +19,47 @@ namespace OnlineBookStore.Controllers
         // =============================
         //           INDEX
         // =============================
-        public IActionResult Index(string search, string category, string sort)
+        public IActionResult Index(string search, int? category, string sort)
         {
             var books = _context.Books
                 .Include(b => b.Author)
+                .Include(b => b.Category)
                 .AsQueryable();
 
-            // 🔍 Search
+            // Search
             if (!string.IsNullOrWhiteSpace(search))
-            {
-                books = books.Where(b =>
-                    b.Title.Contains(search) ||
-                    b.Author.Name.Contains(search));
-            }
+                books = books.Where(b => b.Title.Contains(search) || b.Author.Name.Contains(search));
 
-            // 🏷 Filter by category
-            if (!string.IsNullOrWhiteSpace(category))
-            {
-                books = books.Where(b => b.Category == category);
-            }
+            // Filter
+            if (category.HasValue)
+                books = books.Where(b => b.CategoryId == category.Value);
 
-            // ↕ Sorting
+            // Sorting
             switch (sort)
             {
                 case "price_asc":
                     books = books.OrderBy(b => b.Price);
                     break;
-
                 case "price_desc":
                     books = books.OrderByDescending(b => b.Price);
                     break;
-
                 case "popularity":
                     books = books.OrderByDescending(b => b.Sales);
                     break;
-
                 default:
-                    books = books.OrderBy(b => b.Title); // Default sort
+                    books = books.OrderBy(b => b.Title);
                     break;
             }
 
+            ViewBag.Categories = _context.Categories.ToList(); // ⭐ send categories to view
+            ViewBag.SelectedCategory = category;
+            ViewBag.SelectedCategoryName = category.HasValue
+     ? _context.Categories.FirstOrDefault(c => c.CategoryId == category.Value)?.Name
+     : "All Categories";
+
             return View(books.ToList());
         }
+
 
         // =============================
         //         DETAILS
@@ -69,6 +69,7 @@ namespace OnlineBookStore.Controllers
             var book = _context.Books
                 .Include(b => b.Author)
                 .Include(b => b.Reviews)
+                .Include(b => b.Category)   // 🔥 REQUIRED
                 .FirstOrDefault(b => b.BookID == id);
 
             if (book == null)
@@ -76,6 +77,7 @@ namespace OnlineBookStore.Controllers
 
             return View(book);
         }
+
 
         // =============================
         //        ADD REVIEW
@@ -107,15 +109,22 @@ namespace OnlineBookStore.Controllers
         // =============================
         public IActionResult Create()
         {
+            ViewBag.Categories = new SelectList(_context.Categories.ToList(), "CategoryId", "Name");
             return View();
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Book book)
         {
             if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = new SelectList(_context.Categories.ToList(), "CategoryId", "Name");
                 return View(book);
+            }
+
 
             _context.Books.Add(book);
             _context.SaveChanges();
@@ -126,14 +135,26 @@ namespace OnlineBookStore.Controllers
         // =============================
         //             EDIT
         // =============================
+        //public IActionResult Edit(int id)
+        //{
+        //    var book = _context.Books.FirstOrDefault(b => b.BookID == id);
+        //    if (book == null)
+        //        return NotFound();
+
+        //    return View(book);
+        //}
+
         public IActionResult Edit(int id)
         {
             var book = _context.Books.FirstOrDefault(b => b.BookID == id);
             if (book == null)
                 return NotFound();
 
+            ViewBag.Categories = new SelectList(_context.Categories.ToList(), "CategoryId", "Name", book.CategoryId);
             return View(book);
         }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -143,13 +164,17 @@ namespace OnlineBookStore.Controllers
                 return NotFound();
 
             if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = new SelectList(_context.Categories.ToList(), "CategoryId", "Name");
                 return View(book);
+            }
 
             _context.Update(book);
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
         }
+
 
         // =============================
         //             DELETE

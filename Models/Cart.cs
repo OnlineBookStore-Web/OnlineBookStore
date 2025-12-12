@@ -1,4 +1,9 @@
-﻿// Models/CartItem.cs
+﻿using OnlineBookStore.Models;
+using System;
+using System.ComponentModel.DataAnnotations;
+
+
+// Models/CartItem.cs
 public class CartItem
 {
     public int BookID { get; set; }

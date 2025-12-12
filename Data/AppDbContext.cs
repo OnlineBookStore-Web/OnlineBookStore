@@ -16,15 +16,34 @@ namespace OnlineBookStore.Data
         public DbSet<OrderDetail> OrdersDetails { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
         //rewan part
         //public DbSet<CartItem> CartItem { get; set; }
         //public DbSet<CartViewModel> CartViewModel { get; set; }
 
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.User)
+                .WithMany()
+                .HasForeignKey(o => o.UserID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<OrderDetail>()
+                .HasOne(od => od.Order)
+                .WithMany(o => o.OrderDetails)
+                .HasForeignKey(od => od.OrderID)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<OrderDetail>()
+                .HasOne(od => od.Book)
+                .WithMany(b => b.OrderDetails)
+                .HasForeignKey(od => od.BookID)
+                .OnDelete(DeleteBehavior.NoAction);
 
             // Explicitly configure Review → Book relationship
             modelBuilder.Entity<Review>()
@@ -33,6 +52,7 @@ namespace OnlineBookStore.Data
                 .HasForeignKey(r => r.BookID)
                 .OnDelete(DeleteBehavior.Cascade);
         }
+
     }
 
 }
