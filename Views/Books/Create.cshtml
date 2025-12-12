@@ -15,9 +15,10 @@
     </div>
 
     <div class="mb-3">
-        <label asp-for="Category"></label>
-        <input asp-for="Category" class="form-control" />
+        <label class="form-label">Category</label>
+        <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Categories"></select>
     </div>
+
 
     <div class="mb-3">
         <label asp-for="Price"></label>

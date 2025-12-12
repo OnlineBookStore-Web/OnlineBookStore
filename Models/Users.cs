@@ -24,7 +24,8 @@ namespace OnlineBookStore.Models
         public string Password { get; set; }
 
         public bool IsAdmin { get; set; } = false;
-        public string Role { get; set; } // "Admin" أو "User"
+        [Required]
+        public string Role { get; set; } = "User";// "Admin" أو "User"
 
     }
 }
