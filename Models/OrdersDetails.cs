@@ -18,10 +18,14 @@ namespace OnlineBookStore.Models
         public int BookID { get; set; }
         public virtual Book Book { get; set; }
 
-        [Required]
-        [ForeignKey("User")]
-        public int UserID { get; set; }
-        public virtual User User { get; set; }
+<<<<<<< HEAD
+       
+=======
+        //[Required]
+        //[ForeignKey("User")]
+        //public int UserID { get; set; }
+        //public virtual User User { get; set; }
+>>>>>>> 453ec9cbd12175d5e607353de0ecaa3346a452c4
 
         public int Quantity { get; set; }
         public decimal Price { get; set; }

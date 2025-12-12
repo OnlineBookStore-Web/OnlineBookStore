@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-﻿using Microsoft.AspNetCore.Identity;
-using OnlineBookStore.Models;
-using OnlineBookStore.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-=======
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
@@ -12,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using OnlineBookStore.Data;
 using OnlineBookStore.Models;
 using System.Security.Claims;
->>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
 
 public class AccountController : Controller
 {
@@ -24,11 +16,9 @@ public class AccountController : Controller
         _context = context;
     }
 
-<<<<<<< HEAD
-    // Register 
-=======
+    // ============================
     // REGISTER
->>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
+    // ============================
     [HttpGet]
     public IActionResult Register()
     {
@@ -38,7 +28,8 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Register(User model)
     {
-        if (!ModelState.IsValid) return View(model);
+        if (!ModelState.IsValid)
+            return View(model);
 
         if (_context.Users.Any(u => u.Email == model.Email))
         {
@@ -50,18 +41,12 @@ public class AccountController : Controller
         _context.Users.Add(model);
         await _context.SaveChangesAsync();
 
-<<<<<<< HEAD
-        return RedirectToAction("Login", "Account");
-    }
-
-    // Login 
-=======
         return RedirectToAction("Login");
     }
 
-
+    // ============================
     // LOGIN
->>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
+    // ============================
     [HttpGet]
     public IActionResult Login()
     {
@@ -76,11 +61,9 @@ public class AccountController : Controller
         if (user != null)
         {
             var result = _passwordHasher.VerifyHashedPassword(user, user.Password, password);
+
             if (result == PasswordVerificationResult.Success)
             {
-<<<<<<< HEAD
-                HttpContext.Session.SetInt32("UserID", user.UserID);
-=======
                 // Create Claims
                 var claims = new List<Claim>
                 {
@@ -94,7 +77,6 @@ public class AccountController : Controller
                 // Sign In
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
->>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -103,11 +85,10 @@ public class AccountController : Controller
         return View();
     }
 
-<<<<<<< HEAD
-=======
+    // ============================
     // PROFILE
+    // ============================
     [HttpGet]
->>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
     public IActionResult Profile()
     {
         if (!User.Identity.IsAuthenticated)
@@ -119,10 +100,9 @@ public class AccountController : Controller
         return View(user);
     }
 
-<<<<<<< HEAD
-=======
-    // EDIT PROFILE 
->>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
+    // ============================
+    // EDIT PROFILE
+    // ============================
     [HttpGet]
     public IActionResult EditProfile()
     {
@@ -132,9 +112,10 @@ public class AccountController : Controller
         int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var user = _context.Users.Find(userId);
 
-        if (user == null) return NotFound();
+        if (user == null)
+            return NotFound();
 
-        user.Password = ""; 
+        user.Password = "";
         return View(user);
     }
 
@@ -144,11 +125,8 @@ public class AccountController : Controller
         if (!User.Identity.IsAuthenticated)
             return RedirectToAction("Login");
 
-
         if (string.IsNullOrWhiteSpace(model.Password))
-        {
             ModelState.Remove("Password");
-        }
 
         if (!ModelState.IsValid)
             return View(model);
@@ -156,7 +134,8 @@ public class AccountController : Controller
         int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var user = _context.Users.Find(userId);
 
-        if (user == null) return NotFound();
+        if (user == null)
+            return NotFound();
 
         // Check email uniqueness
         if (_context.Users.Any(u => u.Email == model.Email && u.UserID != userId))
@@ -165,33 +144,60 @@ public class AccountController : Controller
             return View(model);
         }
 
-        // Update allowed fields only
         user.FullName = model.FullName;
         user.Email = model.Email;
 
-<<<<<<< HEAD
-        if (!string.IsNullOrEmpty(model.Password))
-=======
         if (!string.IsNullOrWhiteSpace(model.Password))
->>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
-        {
             user.Password = _passwordHasher.HashPassword(user, model.Password);
-        }
 
         await _context.SaveChangesAsync();
 
         return RedirectToAction("Profile");
     }
 
-<<<<<<< HEAD
-    public IActionResult Logout()
-=======
-
+    // ============================
     // LOGOUT
+    // ============================
     public async Task<IActionResult> Logout()
->>>>>>> 8c09a83bfc2f699442de45865ef170ee21acd54d
     {
         await HttpContext.SignOutAsync();
         return RedirectToAction("Login");
     }
+
+
+    // ============================
+    // ADMIN LOGIN  (NO DATABASE)
+    // ============================
+    [HttpGet]
+    public IActionResult AdminLogin()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AdminLogin(string email, string password)
+    {
+        string adminEmail = "admin@bookstore.com";
+        string adminPassword = "Admin123"; // ثابتين
+
+        if (email == adminEmail && password == adminPassword)
+        {
+            var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, "Admin"),
+            new Claim(ClaimTypes.Role, "Admin")
+        };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            return RedirectToAction("Index", "Admin"); // يفتح لوحة تحكم الأدمن
+        }
+
+        ModelState.AddModelError("", "Invalid admin credentials");
+        return View();
+    }
+
 }

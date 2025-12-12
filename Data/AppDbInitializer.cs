@@ -1,4 +1,6 @@
-﻿namespace OnlineBookStore.Data
+﻿using OnlineBookStore.Models;
+
+namespace OnlineBookStore.Data
 {
     public class AppDbInitializer
     {
@@ -34,6 +36,19 @@
                     context.SaveChanges();
                 }
 
+                // 4.Seed Categories
+                if (!context.Categories.Any())
+                {
+                    context.Categories.AddRange(new List<Category>
+                    {
+                        new Category { Name = "Crime" },
+                        new Category { Name = "Mystery" },
+                        new Category { Name = "Classic" },
+                        new Category { Name = "Self-help" }
+                    });
+                    context.SaveChanges();
+                }
+
                 // 2. Seed Books
                 if (!context.Books.Any())
                 {
@@ -47,7 +62,7 @@
                         {
                             Title = "A Good Girl's Guide to Murder",
                             AuthorID = hollyJackson.AuthorID,
-                            Category = "Mystery",
+                            CategoryId = 2, //Mystery
                             Price = 14.99M,
                             Stock = 25,
                             Sales = 150,
@@ -58,7 +73,7 @@
                         {
                             Title = "Death on the Nile",
                             AuthorID = agathaChristie.AuthorID,
-                            Category = "Crime",
+                            CategoryId = 1, //Crime
                             Price = 13.50M,
                             Stock = 18,
                             Sales =50,
@@ -69,7 +84,7 @@
                         {
                             Title = "Oliver Twist",
                             AuthorID = charlesDickens.AuthorID,
-                            Category = "Classic",
+                            CategoryId = 3, //Classic
                             Price = 11.00M,
                             Stock = 30,
                             Sales =200,
@@ -96,6 +111,9 @@
 
                     context.SaveChanges();
                 }
+
+                
+
             }
         }
     }

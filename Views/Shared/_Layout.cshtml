@@ -1,5 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Mvc
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@inject OnlineBookStore.Data.AppDbContext _context
+@{
+    var categoryList = _context.Categories.ToList();
+}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,88 +21,104 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            
             <div class="container-fluid">
 
-                <!-- Website Name -->
+                <!-- LEFT: Website Name -->
                 <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
                     OnlineBookStore
                 </a>
 
-                <!-- Toggle (mobile) -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="mainNavbar">
 
-                    <!-- LEFT SIDE -->
+                    <!-- LEFT SIDE: Categories -->
                     <ul class="navbar-nav me-auto">
+                        @* @if ( User.IsInRole("User")){ *@
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle fw-bold text-white" href="#"
+                                    id="categoriesDropdown" role="button" data-bs-toggle="dropdown">
+                                📚 Categories
+                                </a>
 
-                        <!-- Categories Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown"
-                               role="button" data-bs-toggle="dropdown">
-                                Categories
-                            </a>
+                                <ul class="dropdown-menu">
+                                <!-- All categories option -->
+                                <li>
+                                    <a class="dropdown-item fw-bold"
+                                       asp-controller="Books"
+                                       asp-action="Index"
+                                       asp-route-category="">
+                                        All Categories
+                                    </a>
+                                </li>
 
-                            <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                                <li><a class="dropdown-item" asp-controller="Books" asp-action="Index" asp-route-category="Crime">Crime</a></li>
-                                <li><a class="dropdown-item" asp-controller="Books" asp-action="Index" asp-route-category="Mystery">Mystery</a></li>
-                                <li><a class="dropdown-item" asp-controller="Books" asp-action="Index" asp-route-category="History">History</a></li>
-                                <li><a class="dropdown-item" asp-controller="Books" asp-action="Index" asp-route-category="Classic">Classic</a></li>
-                                <li><a class="dropdown-item" asp-controller="Books" asp-action="Index" asp-route-category="Science">Science</a></li>
-                            </ul>
-                        </li>
-
+                                    @foreach (var get in categoryList)
+                                    {
+                                        <li>
+                                            <a class="dropdown-item"
+                                                asp-controller="Books"
+                                                asp-action="Index"
+                                                asp-route-category="@get.CategoryId">
+                                            @get.Name
+                                            </a>
+                                        </li>
+                                }
+                                </ul>
+                            </li>
+                       @*  } *@
                     </ul>
-
-                    <!-- CENTER: Search -->
-                    <form asp-controller="Books" asp-action="Index" method="get" class="d-flex me-3">
-                        <input name="search" class="form-control me-2" type="search" placeholder="Search books..." />
-                        <button class="btn btn-outline-light" type="submit">Search</button>
-                    </form>
 
                     <!-- RIGHT SIDE -->
-                    <ul class="navbar-nav">
+                    <div class="d-flex align-items-center">
 
-                        <!-- USER SECTION -->
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-controller="Account" asp-action="Profile">
-                                    Hello, @User.Identity.Name
+                        <!-- Search Bar -->
+                        <form asp-controller="Books" asp-action="Index" method="get" class="d-flex me-3">
+                            <input name="search" class="form-control me-2" type="search" placeholder="Search..." />
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+                        </form>
+
+                        <!-- Login / Register OR User -->
+                        <ul class="navbar-nav">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-controller="Account" asp-action="Profile">
+                                        Hello, @User.Identity.Name
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <form asp-controller="Account" asp-action="Logout" method="post">
+                                        <button class="btn btn-danger btn-sm ms-2">Logout</button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-controller="Account" asp-action="Login">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white" asp-controller="Account" asp-action="Register">Register</a>
+                                </li>
+                            }
+
+                            <!-- Cart -->
+                            <li class="nav-item ms-3">
+                                <a asp-controller="Cart" asp-action="Index" class="nav-link text-white fs-5">
+                                    <i class="bi bi-cart"></i>
                                 </a>
                             </li>
+                        </ul>
 
-                            <li class="nav-item">
-                                <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
-                                    <button class="btn btn-danger btn-sm ms-2">Logout</button>
-                                </form>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-controller="Account" asp-action="Login">Login</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-white" asp-controller="Account" asp-action="Register">Register</a>
-                            </li>
-                        }
-
-                        <!-- Cart Icon -->
-                        <li class="nav-item ms-3">
-                            <a asp-controller="Cart" asp-action="Index" class="nav-link text-white fs-5">
-                                <i class="bi bi-cart"></i>
-                            </a>
-                        </li>
-
-                    </ul>
+                    </div>
 
                 </div>
-
             </div>
+
         </nav>
     </header>
 
