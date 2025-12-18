@@ -1,4 +1,4 @@
-﻿@model OnlineBookStore.Models.
+﻿@model OnlineBookStore.Models.CartViewModel
 @{
     ViewData["Title"] = "My Cart";
 }
@@ -56,7 +56,13 @@
 
     <div class="cart-summary">
         <h3>Total: @Model.CartTotal.ToString("C")</h3>
-        <a asp-controller="Checkout" asp-action="Index" class="btn btn-success">Proceed to Checkout</a>
+        @* <a asp-controller="Checkout" asp-action="Index" class="btn btn-success">Proceed to Checkout</a> *@
+        <a asp-controller="Orders"
+           asp-action="Checkout"
+           class="btn btn-success">
+            Proceed to Checkout
+        </a>
+
     </div>
 
 </div>
