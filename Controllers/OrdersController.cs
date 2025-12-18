@@ -3,7 +3,7 @@ using OnlineBookStore.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace YourProject.Controllers
+namespace OnlineBookStore.Controllers
 {
     public class OrdersController : Controller
     {
