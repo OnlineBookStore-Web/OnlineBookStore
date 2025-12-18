@@ -60,9 +60,15 @@ namespace YourProject.Controllers
         {
             int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
 
+            // جلب كل الطلبات الخاصة بالمستخدم
             var userOrders = Orders.Where(o => o.UserID == userId).ToList();
 
-            return View("OrderHistory", userOrders);
+            // تحويل كل Order لـ List<OrderDetail> لو محتاجة تفاصيل كل منتج في الطلب
+            var orderDetailsList = userOrders
+                .SelectMany(o => o.OrderDetails) // OrderDetails مفروض تكون property في Order
+                .ToList();
+
+            return View("OrderHistory", orderDetailsList);
         }
 
         // ============================
