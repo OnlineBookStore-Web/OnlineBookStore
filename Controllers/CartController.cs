@@ -10,6 +10,7 @@ public class CartController : Controller
 
     // Simulate a cart (replace with DB in real project)
     private static List<CartItem> cart = new List<CartItem>();
+    //public static List<CartItem> Cart { get; } = new List<CartItem>();
 
     public CartController(AppDbContext context)
     {
