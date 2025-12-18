@@ -1,4 +1,4 @@
-﻿@model IEnumerable<OnlineBookStore.Models.Authors>
+﻿@* @model IEnumerable<OnlineBookStore.Models.Authors>
 
 @{
     ViewData["Title"] = "Authors List";
@@ -58,4 +58,88 @@
         </table>
 
     </div>
+</div>
+ *@
+@model IEnumerable<OnlineBookStore.Models.Authors>
+
+@{
+    ViewData["Title"] = "Authors";
+    var isAdmin = User?.Identity?.IsAuthenticated == true && User.IsInRole("Admin");
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">Authors</h4>
+
+            @if (isAdmin)
+            {
+                <a asp-action="Create" class="btn btn-success btn-sm">
+                    <i class="bi bi-plus-circle"></i> Add Author
+                </a>
+            }
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Biography</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@item.Name</td>
+
+                            <td class="text-muted" style="max-width: 400px;">
+                                @item.Biography
+                            </td>
+
+                            <td class="text-center">
+
+                                <!-- DETAILS: Everyone -->
+                                <a asp-action="Details"
+                                   asp-route-id="@item.AuthorID"
+                                   class="btn btn-outline-info btn-sm me-1">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+
+                                <!-- ADMIN ONLY -->
+                                @if (isAdmin)
+                                {
+                                    <a asp-action="Edit"
+                                       asp-route-id="@item.AuthorID"
+                                       class="btn btn-outline-primary btn-sm me-1">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+
+                                    <a asp-action="Delete"
+                                       asp-route-id="@item.AuthorID"
+                                       class="btn btn-outline-danger btn-sm">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            @if (!Model.Any())
+            {
+                <div class="text-center text-muted py-4">
+                    No authors found.
+                </div>
+            }
+
+        </div>
+    </div>
+
 </div>

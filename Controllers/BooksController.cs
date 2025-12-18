@@ -111,6 +111,7 @@ namespace OnlineBookStore.Controllers
         {
             ViewBag.Categories = new SelectList(_context.Categories.ToList(), "CategoryId", "Name");
             return View();
+
         }
 
 
