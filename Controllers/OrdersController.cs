@@ -17,7 +17,8 @@ namespace OnlineBookStore.Controllers
         [HttpGet]
         public IActionResult Checkout()
         {
-            return View("~/Views/Orders/Checkout.cshtml");
+            //return View("~/Views/Orders/Checkout.cshtml");
+            return View();
         }
 
         // ============================
