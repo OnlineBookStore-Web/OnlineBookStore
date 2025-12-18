@@ -6443,39 +6443,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\nadaw\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\Sara Omran\\.nuget\\packages\\": {},
->>>>>>> 79de03e87b5a0919fc45021bcdf1b88a64031934
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj",
       "projectName": "OnlineBookStore",
       "projectPath": "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj",
       "packagesPath": "C:\\Users\\nadaw\\.nuget\\packages\\",
       "outputPath": "D:\\kolya\\onlineBookStore1\\obj\\",
-=======
-      "projectUniqueName": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
-      "projectName": "OnlineBookStore",
-      "projectPath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
-      "packagesPath": "C:\\Users\\Sara Omran\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Web Development\\OnlineBookStore\\obj\\",
->>>>>>> 79de03e87b5a0919fc45021bcdf1b88a64031934
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\nadaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\Sara Omran\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 79de03e87b5a0919fc45021bcdf1b88a64031934
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6576,9 +6560,6 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
-=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
@@ -6994,16 +6975,7 @@
           "System.Xml.XPath": "(,4.3.32767]",
           "System.Xml.XPath.XDocument": "(,5.0.32767]"
         }
->>>>>>> 79de03e87b5a0919fc45021bcdf1b88a64031934
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Projects\\Web Development\\OnlineBookStore\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
-    }
-  ]
+  }
 }
