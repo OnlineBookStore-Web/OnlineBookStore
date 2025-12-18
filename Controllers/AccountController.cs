@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -163,4 +163,41 @@ public class AccountController : Controller
         await HttpContext.SignOutAsync();
         return RedirectToAction("Login");
     }
+
+
+    // ============================
+    // ADMIN LOGIN  (NO DATABASE)
+    // ============================
+    [HttpGet]
+    public IActionResult AdminLogin()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AdminLogin(string email, string password)
+    {
+        string adminEmail = "admin@bookstore.com";
+        string adminPassword = "Admin123"; // ثابتين
+
+        if (email == adminEmail && password == adminPassword)
+        {
+            var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, "Admin"),
+            new Claim(ClaimTypes.Role, "Admin")
+        };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var principal = new ClaimsPrincipal(identity);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            return RedirectToAction("Index", "Admin"); // يفتح لوحة تحكم الأدمن
+        }
+
+        ModelState.AddModelError("", "Invalid admin credentials");
+        return View();
+    }
+
 }

@@ -16,9 +16,6 @@ namespace OnlineBookStore.Models
         public int AuthorID { get; set; }
         public Authors Author { get; set; }
 
-        [StringLength(100)]
-        public string Category { get; set; }
-
         public decimal Price { get; set; }
 
         public int Stock { get; set; }
@@ -35,6 +32,10 @@ namespace OnlineBookStore.Models
         public List<Review> Reviews { get; set; }
 
         public int Sales { get; set; } = 0; // tracks popularity
+
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
 
     }
 }
