@@ -1,22 +1,14 @@
 is_global = true
 build_property.TargetFramework = net10.0
-build_property.TargetFramework = net10.0
-build_property.TargetPlatformMinVersion = 
-build_property.TargetPlatformMinVersion = 
-build_property.UsingMicrosoftNETSdkWeb = true
-build_property.UsingMicrosoftNETSdkWeb = true
-build_property.ProjectTypeGuids = 
-build_property.ProjectTypeGuids = 
-build_property.InvariantGlobalization = 
-build_property.InvariantGlobalization = 
-build_property.PlatformNeutralAssembly = 
-build_property.PlatformNeutralAssembly = 
-build_property.EnforceExtendedAnalyzerRules = 
-build_property.EnforceExtendedAnalyzerRules = 
-build_property._SupportedPlatformList = Linux,macOS,Windows
-build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OnlineBookStore
 build_property.RootNamespace = OnlineBookStore
 build_property.ProjectDir = C:\Users\rowan\OneDrive\Dokumente\cyber 2nd year\Web Development\webpo\
@@ -50,20 +42,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rowan/OneDrive/Dokumente/cyber 2nd year/Web Development/webpo/Views/Admin/Book.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9vay5jc2h0bWw=
+[C:/Users/rowan/OneDrive/Dokumente/cyber 2nd year/Web Development/webpo/Views/Admin/Books.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/rowan/OneDrive/Dokumente/cyber 2nd year/Web Development/webpo/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rowan/OneDrive/Dokumente/cyber 2nd year/Web Development/webpo/Views/Admin/Order.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXIuY3NodG1s
+[C:/Users/rowan/OneDrive/Dokumente/cyber 2nd year/Web Development/webpo/Views/Admin/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cT3JkZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/rowan/OneDrive/Dokumente/cyber 2nd year/Web Development/webpo/Views/Admin/User.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlci5jc2h0bWw=
+[C:/Users/rowan/OneDrive/Dokumente/cyber 2nd year/Web Development/webpo/Views/Admin/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/rowan/OneDrive/Dokumente/cyber 2nd year/Web Development/webpo/Views/Authors/Create.cshtml]

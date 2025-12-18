@@ -1,23 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj": {}
+<<<<<<< HEAD
+    "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj": {}
+=======
+    "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj": {}
+>>>>>>> 34669143df75c27d11f39a98bfe230b4270787a4
   },
   "projects": {
-    "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj": {
+    "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
+        "projectUniqueName": "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj",
         "projectName": "OnlineBookStore",
-        "projectPath": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\OnlineBookStore.csproj",
-        "packagesPath": "C:\\Users\\rowan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\webpo\\obj\\",
+<<<<<<< HEAD
+        "projectPath": "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj",
+        "packagesPath": "C:\\Users\\nadaw\\.nuget\\packages\\",
+        "outputPath": "D:\\kolya\\onlineBookStore1\\obj\\",
+=======
+        "projectPath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
+        "packagesPath": "C:\\Users\\Sara Omran\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Web Development\\OnlineBookStore\\obj\\",
+>>>>>>> 34669143df75c27d11f39a98bfe230b4270787a4
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\rowan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< HEAD
+          "C:\\Users\\nadaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+          "C:\\Users\\Sara Omran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 34669143df75c27d11f39a98bfe230b4270787a4
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -114,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
