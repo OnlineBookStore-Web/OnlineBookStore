@@ -14,14 +14,14 @@ namespace OnlineBookStore.Models
         [ForeignKey("User")]
         public int UserID { get; set; }
 
-        public virtual User User { get; set; }  // Navigation Property لـ User
+        public virtual User? User { get; set; }  // Navigation Property لـ User
 
         public DateTime OrderDate { get; set; } = DateTime.Now;
 
         public decimal TotalAmount { get; set; }
 
         // Navigation Property
-        public virtual List<OrderDetail> OrderDetails { get; set; }
+        public virtual List<OrderDetail>? OrderDetails { get; set; }
         //rewan part
         [Required]
         [StringLength(50)]
@@ -29,7 +29,7 @@ namespace OnlineBookStore.Models
 
    
         [StringLength(500)]
-        public string ShippingAddress { get; set; }
+        public string? ShippingAddress { get; set; }
 
     }
 }
