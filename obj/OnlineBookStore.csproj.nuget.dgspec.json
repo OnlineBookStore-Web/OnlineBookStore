@@ -1,11 +1,7 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\wepoo\\OnlineBookStore.csproj": {}
-=======
-    "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj": {}
->>>>>>> 8a9941b9bbdba9c95466d69a59d62e9fd3ac5f1e
   },
   "projects": {
     "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\wepoo\\OnlineBookStore.csproj": {
@@ -13,25 +9,15 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\wepoo\\OnlineBookStore.csproj",
         "projectName": "OnlineBookStore",
-<<<<<<< HEAD
         "projectPath": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\wepoo\\OnlineBookStore.csproj",
         "packagesPath": "C:\\Users\\rowan\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\rowan\\OneDrive\\Dokumente\\cyber 2nd year\\Web Development\\wepoo\\obj\\",
-=======
-        "projectPath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
-        "packagesPath": "C:\\Users\\Sara Omran\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Web Development\\OnlineBookStore\\obj\\",
->>>>>>> 8a9941b9bbdba9c95466d69a59d62e9fd3ac5f1e
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\rowan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-          "C:\\Users\\Sara Omran\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 8a9941b9bbdba9c95466d69a59d62e9fd3ac5f1e
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -136,10 +122,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -554,7 +537,6 @@
             "System.Xml.XPath": "(,4.3.32767]",
             "System.Xml.XPath.XDocument": "(,5.0.32767]"
           }
->>>>>>> 8a9941b9bbdba9c95466d69a59d62e9fd3ac5f1e
         }
       }
     }
