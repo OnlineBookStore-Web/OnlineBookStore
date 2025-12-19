@@ -16,6 +16,6 @@ namespace OnlineBookStore.Models
         [Display(Name = "Bio")]
         public string Biography { get; set; }=string.Empty;
 
-        public virtual List<Book> Books { get; set; }
+        public virtual List<Book>? Books { get; set; }
     }
 }
