@@ -2,14 +2,13 @@
 
 <h3 class="mb-4">Books Management</h3>
 
-<a href="/Books/Create" class="btn btn-success mb-3">+ Add New Book</a>
+<a asp-controller="Admin" asp-action="Create" class="btn btn-success mb-3">+ Add New Book</a>
 
 <table class="table table-bordered table-striped table-hover">
     <thead class="table-dark">
         <tr>
             <th>ID</th>
             <th>Title</th>
-            <th>Author</th>
             <th>Price</th>
             <th>Actions</th>
         </tr>
@@ -20,17 +19,14 @@
             <tr>
                 <td>@book.BookID</td>
                 <td>@book.Title</td>
-                <td>@book.Author</td>
                 <td>$@book.Price</td>
                 <td>
-                    <a href="/Books/Edit/@book.BookID" class="btn btn-warning btn-sm me-1">Edit</a>
-                    <a href="/Books/Delete/@book.BookID" class="btn btn-danger btn-sm">Delete</a>
-
-                    @* <a asp-area="Admin" asp-controller="Books" asp-action="Edit" asp-route-id="@book.BookID"
+                 
+                    <a asp-area="Admin" asp-controller="Admin" asp-action="Edit" asp-route-id="@book.BookID"
                        class="btn btn-warning btn-sm me-1">Edit</a>
 
-                    <a asp-area="Admin" asp-controller="Books" asp-action="Delete" asp-route-id="@book.BookID"
-                       class="btn btn-danger btn-sm">Delete</a> *@
+                    <a asp-area="Admin" asp-controller="Admin" asp-action="Delete" asp-route-id="@book.BookID"
+                       class="btn btn-danger btn-sm">Delete</a>
 
                 </td>
             </tr>

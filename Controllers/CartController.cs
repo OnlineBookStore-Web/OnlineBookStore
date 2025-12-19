@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineBookStore.Models;
 using OnlineBookStore.Data;
 using OnlineBookStore.Helpers;
+using OnlineBookStore.Models;
 using System.Linq;
+using System.Security.Claims;
 
 public class CartController : Controller
 {
@@ -24,7 +25,7 @@ public class CartController : Controller
         return View(new CartViewModel
         {
             Items = cart,
-            CartTotal = cart.Sum(i => i.Price * i.Quantity)
+            CartTotal = cart.Sum(i => i.Total)
         });
     }
 
@@ -48,7 +49,7 @@ public class CartController : Controller
         }
         else
         {
-            var book = _context.Books.FirstOrDefault(b => b.BookID == bookID);
+            var book = _context.Books.Find(bookID);
             if (book == null) return NotFound();
 
             cart.Add(new CartItem
@@ -61,10 +62,11 @@ public class CartController : Controller
         }
 
         HttpContext.Session.SetObjectAsJson("Cart", cart);
-
         return Redirect(Request.Headers["Referer"].ToString());
->>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6
+
     }
+
+
 
     // =============================
     // UPDATE QTY
@@ -92,35 +94,58 @@ public class CartController : Controller
     // =============================
     // CHECKOUT
     // =============================
-    public IActionResult Checkout()
-    {
-        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+    //public IActionResult Checkout()
+    //{
 
-        if (cart == null || !cart.Any())
-        {
-            TempData["Message"] = "Your cart is empty!";
-            return RedirectToAction("Index");
-        }
+    //    if (!User.Identity.IsAuthenticated)
+    //        return RedirectToAction("Login", "Account");
 
-        int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
+    //    int userId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value);
 
-        foreach (var item in cart)
-        {
-            _context.Orders.Add(new Order
-            {
-                UserID = userId,
-                BookID = item.BookID,
-                Quantity = item.Quantity,
-                OrderDate = DateTime.Now
-            });
-        }
+    //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
 
-        _context.SaveChanges();
+    //    if (cart == null || !cart.Any())
+    //    {
+    //        TempData["Message"] = "Your cart is empty!";
+    //        return RedirectToAction("Index");
+    //    }
 
-        // CLEAR CART
-        HttpContext.Session.Remove("Cart");
+    //    var order = new Order
+    //    {
+    //        UserID = userId,
+    //        OrderDate = DateTime.Now,
+    //        Status = "Pending",
+    //        TotalAmount = cart.Sum(i => i.Price * i.Quantity)
+    //    };
 
-        return RedirectToAction("OrderHistory", "Orders");
-    }
+    //    _context.Orders.Add(order);
+    //    try
+    //    {
+    //        _context.SaveChanges();
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        throw new Exception(ex.InnerException?.Message ?? ex.Message);
+    //    }
+
+
+    //    foreach (var item in cart)
+    //    {
+    //        _context.OrdersDetails.Add(new OrderDetail
+    //        {
+    //            OrderID = order.OrderID,
+    //            BookID = item.BookID,
+    //            Quantity = item.Quantity,
+    //            Price = item.Price
+    //        });
+    //    }
+
+
+    //    _context.SaveChanges();
+
+    //    HttpContext.Session.Remove("Cart");
+
+    //    return RedirectToAction("Checkout", "Orders");
+    //}
+
 }
->>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6

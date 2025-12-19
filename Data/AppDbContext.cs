@@ -19,7 +19,7 @@ namespace OnlineBookStore.Data
         public DbSet<Category> Categories { get; set; }
 
         //rewan part
-        //public DbSet<CartItem> CartItem { get; set; }
+        public DbSet<CartItem> CartItem { get; set; }
         //public DbSet<CartViewModel> CartViewModel { get; set; }
 
 

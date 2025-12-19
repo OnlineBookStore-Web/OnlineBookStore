@@ -5,6 +5,8 @@ using OnlineBookStore.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using OnlineBookStore.Helpers;
+
 
 namespace OnlineBookStore.Controllers
 {
@@ -27,80 +29,128 @@ namespace OnlineBookStore.Controllers
             return View(Orders);
         }
 
-        
+
         // ============================
         // Checkout Page
         // GET: /Orders/Checkout
         // ============================
         [HttpGet]
-       
-            public IActionResult Checkout()
+        public IActionResult Checkout()
         {
-            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
-            if (cart == null || !cart.Any())
-            {
-                TempData["Message"] = "Your cart is empty";
-                return RedirectToAction("Index");
-            }
-
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userIdClaim))
+            if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "Account");
 
-            int userId = int.Parse(userIdClaim);
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+
+            if (cart == null || !cart.Any())
+            {
+                TempData["Message"] = "Your cart is empty!";
+                return RedirectToAction("Index", "Cart");
+            }
+
+            var vm = new CheckoutViewModel
+            {
+                Items = cart,
+                Total = cart.Sum(i => i.Total)
+            };
+
+            return View(vm);
+        }
+
+
+
+
+        // ============================
+        // Place Order
+        // POST: /Orders/PlaceOrder
+        // ============================
+        //[HttpPost]
+        //public IActionResult PlaceOrder(string fullName, string address, string phone)
+        //{
+        //    if (!User.Identity.IsAuthenticated)
+        //        return RedirectToAction("Login", "Account");
+
+        //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+
+        //    if (cart == null || !cart.Any())
+        //        return RedirectToAction("Index", "Cart");
+
+        //    int userId = int.Parse(User.FindFirst(
+        //        System.Security.Claims.ClaimTypes.NameIdentifier).Value);
+
+        //    var order = new Order
+        //    {
+        //        UserID = userId,
+        //        OrderDate = DateTime.Now,
+        //        Status = "Pending",
+        //        TotalAmount = cart.Sum(i => i.Price * i.Quantity)
+        //    };
+
+        //    _context.Orders.Add(order);
+        //    _context.SaveChanges();
+
+        //    foreach (var item in cart)
+        //    {
+        //        _context.OrdersDetails.Add(new OrderDetail
+        //        {
+        //            OrderID = order.OrderID,
+        //            BookID = item.BookID,
+        //            Quantity = item.Quantity,
+        //            Price = item.Price
+        //        });
+        //    }
+
+        //    _context.SaveChanges();
+
+        //    // 🧹 Clear cart after success
+        //    HttpContext.Session.Remove("Cart");
+
+        //    return RedirectToAction("OrderHistory");
+        //}
+
+        [HttpPost]
+        public IActionResult PlaceOrder(CheckoutViewModel model)
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Account");
+
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+            if (cart == null || !cart.Any())
+                return RedirectToAction("Index", "Cart");
+
+            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+            var order = new Order
+            {
+                UserID = userId,
+                OrderDate = DateTime.Now,
+                Status = "Pending",
+                ShippingAddress = model.Address,
+                TotalAmount = cart.Sum(i => i.Total)
+            };
+
+            _context.Orders.Add(order);
+            _context.SaveChanges();
 
             foreach (var item in cart)
             {
-                var order = new Order
+                _context.OrdersDetails.Add(new OrderDetail
                 {
-                    UserID = userId,
+                    OrderID = order.OrderID,
                     BookID = item.BookID,
                     Quantity = item.Quantity,
-                    OrderDate = DateTime.Now
-                };
-
-                _context.Orders.Add(order);
+                    Price = item.Price
+                });
             }
 
             _context.SaveChanges();
 
             HttpContext.Session.Remove("Cart");
 
-            return RedirectToAction("OrderHistory", "Orders");
+            return RedirectToAction("OrderHistory");
         }
 
-        
 
-        // ============================
-        // Place Order
-        // POST: /Orders/PlaceOrder
-        // ============================
-        [HttpPost]
-        public IActionResult PlaceOrder([FromBody] OrderDTO order)
-        {
-            if (order == null || order.Items == null || order.Items.Count == 0)
-            {
-                return Json(new { success = false, message = "Cart is empty!" });
-            }
-
-            // إنشاء أوردر جديد للتجربة
-            Orders.Add(new Order
-            {
-                OrderID = Orders.Count + 1,
-                UserID = int.Parse(HttpContext.Session.GetString("UserID") ?? "0"),
-                OrderDate = System.DateTime.Now,
-                TotalAmount = order.Total,
-                Status = "Pending",
-                OrderDetails = order.Items.Select(i => new OrderDetail
-                {
-                    BookID = i.Id,
-                    Quantity = i.Qty
-                    // UnitPrice غير موجود في موديلك، ما نضيفش
-                }).ToList()
-            });
-
-            return Json(new { success = true, message = "Order placed successfully!" });
-        }
 
         // ============================
         // Order History
