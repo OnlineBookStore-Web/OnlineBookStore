@@ -3,5 +3,12 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)mono.texttemplating\3.0.0\buildTransitive\Mono.TextTemplating.targets" Condition="Exists('$(NuGetPackageRoot)mono.texttemplating\3.0.0\buildTransitive\Mono.TextTemplating.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.11.0\buildTransitive\Microsoft.CodeAnalysis.Analyzers.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.11.0\buildTransitive\Microsoft.CodeAnalysis.Analyzers.targets')" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.options\10.0.1\buildTransitive\net8.0\Microsoft.Extensions.Options.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.options\10.0.1\buildTransitive\net8.0\Microsoft.Extensions.Options.targets')" />
+>>>>>>> 64ebfe94199b61e4bf96421989f40ed958b33cf7
+>>>>>>> 495befb38b6edd330fed5418fc314be9f19b07a1
   </ImportGroup>
 </Project>
