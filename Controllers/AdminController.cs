@@ -208,5 +208,31 @@ public class AdminController : Controller
         return RedirectToAction(nameof(Books)); 
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult AcceptOrder(int id)
+    {
+        var order = _db.Orders.FirstOrDefault(o => o.OrderID == id);
+
+        if (order == null)
+        {
+            TempData["Message"] = "Order not found.";
+            return RedirectToAction(nameof(Orders));
+        }
+
+        if (order.Status != "Pending")
+        {
+            TempData["Message"] = "Order cannot be accepted.";
+            return RedirectToAction(nameof(Orders));
+        }
+
+        order.Status = "Accepted";
+        _db.SaveChanges();
+
+        TempData["Message"] = $"Order #{order.OrderID} accepted successfully.";
+        return RedirectToAction(nameof(Orders));
+    }
+
+
 }
 
