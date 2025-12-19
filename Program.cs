@@ -1,67 +1,9 @@
-//using Microsoft.AspNetCore.Authentication.Cookies;
-//using Microsoft.EntityFrameworkCore;
-//using System;
-
-
-
-//var builder = WebApplication.CreateBuilder(args);
-//builder.Services.AddSession();
-//app.UseSession();
-////Dbcontext configuration (Sara)
-//builder.Services.AddDbContext<OnlineBookStore.Data.AppDbContext>(options =>
-//    options.UseSqlServer(
-//        builder.Configuration.GetConnectionString("DefaultConnection")));
-
-//// Add services to the container.
-//builder.Services.AddControllersWithViews();
-
-
-//// Cookie Authentication
-//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-//    .AddCookie(options =>
-//    {
-//        options.LoginPath = "/Account/Login";    
-//        options.LogoutPath = "/Account/Logout";
-//        options.AccessDeniedPath = "/Account/Login";
-//        options.ExpireTimeSpan = TimeSpan.FromHours(12); 
-//    });
-
-//var app = builder.Build();
-
-//// Configure the HTTP request pipeline.
-//if (!app.Environment.IsDevelopment())
-//{
-//    app.UseExceptionHandler("/Home/Error");
-//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-//    app.UseHsts();
-//}
-
-////app.MapControllerRoute(
-////    name: "areas",
-////    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-////);
-
-
-//app.UseHttpsRedirection(); 
-//app.UseRouting();
-//app.UseAuthentication();
-//app.UseAuthorization();
-
-//app.MapStaticAssets();
-
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}")
-//    .WithStaticAssets();
-
-////Seed database (Sara)
-//OnlineBookStore.Data.AppDbInitializer.Seed(app);
-
-//app.Run();
 
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using OnlineBookStore.Data;
+using OnlineBookStore.Models;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -110,5 +52,30 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 AppDbInitializer.Seed(app);
+
+//admin
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var passwordHasher = new PasswordHasher<User>();
+
+    if (!context.Users.Any(u => u.Role == "Admin"))
+    {
+        var adminUser = new User
+        {
+            FullName = "Book Admin",
+            Email = "adminnn@gmail.com",
+            IsAdmin = true,
+            Role = "Admin"
+        };
+        adminUser.Password = passwordHasher.HashPassword(adminUser, "Admin@12346");
+
+        context.Users.Add(adminUser);
+        context.SaveChanges();
+    }
+}
+
+
 
 app.Run();
