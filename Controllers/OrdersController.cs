@@ -153,9 +153,46 @@ namespace OnlineBookStore.Controllers
 
             return RedirectToAction("OrderHistory");
         }
+        public IActionResult Success()
+        {
+            return View();
+        }
+        //AcceptOrder
+        [HttpPost]
+        public IActionResult AcceptOrder(int id)
+        {
+            // تأكد إن المستخدم أدمن
+            if (!User.IsInRole("Admin"))
+            {
+                return Unauthorized();
+            }
+
+            // جلب الأوردر من الـ DB
+            var order = _context.Orders.FirstOrDefault(o => o.OrderID == id);
+
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            // فقط الأوردرات اللي حالتهم Pending يمكن قبولها
+            if (order.Status != "Pending")
+            {
+                TempData["Message"] = "This order cannot be accepted.";
+                return RedirectToAction("Index"); // ممكن توجهيها للـ Admin Orders page
+            }
+
+            // تحديث الحالة
+            order.Status = "Accepted";
+            _context.SaveChanges();
+
+            TempData["Message"] = "Order accepted successfully!";
+            return RedirectToAction("Index"); // توجه للصفحة المناسبة
+        }
+
     }
 
-    
+
 
 
     // ============================

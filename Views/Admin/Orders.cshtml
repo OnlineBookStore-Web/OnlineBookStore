@@ -31,6 +31,14 @@
 
 <h3 class="mb-4">Orders Management</h3>
 
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Message"]
+    </div>
+}
+
+
 <table class="table table-bordered table-striped table-hover">
     <thead class="table-dark">
         <tr>
@@ -40,6 +48,7 @@
             <th>Quantity</th>
             <th>Price</th>
             <th>Total</th>
+            <th>Actions</th>
         </tr>
     </thead>
 
@@ -61,7 +70,20 @@
 
                 <td>@item.Price.ToString("C")</td>
 
-                <td>@(item.Price* item.Quantity)</td>
+                <td>@(item.Price* item.Quantity).ToString("C")</td>
+                <td>
+                    @if (item.Order?.Status == "Pending")
+                    {
+                        <form asp-action="AcceptOrder" method="post" style="display:inline">
+                            <input type="hidden" name="id" value="@item.OrderID" />
+                            <button type="submit" class="btn btn-success btn-sm">Accept</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Cannot accept</span>
+                    }
+                </td>
             </tr>
         }
     </tbody>
