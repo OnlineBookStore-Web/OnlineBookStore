@@ -4,6 +4,7 @@ using OnlineBookStore.Models;
 
 public class AdminController : Controller
 {
+
     private readonly AppDbContext _db;
 
     public AdminController(AppDbContext db)

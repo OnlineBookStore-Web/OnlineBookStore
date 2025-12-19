@@ -176,6 +176,43 @@ namespace OnlineBookStore.Controllers
         }
 
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult Edit(int id, Book updatedBook)
+        //{
+        //    if (id != updatedBook.BookID)
+        //        return NotFound();
+
+        //    if (!ModelState.IsValid)
+        //    {
+        //        ViewBag.Categories = new SelectList(
+        //            _context.Categories.ToList(),
+        //            "CategoryId",
+        //            "Name",
+        //            updatedBook.CategoryId
+        //        );
+        //        return View(updatedBook);
+        //    }
+
+        //    var book = _context.Books.FirstOrDefault(b => b.BookID == id);
+        //    if (book == null)
+        //        return NotFound();
+
+        //    // ✅ Explicit updates (SAFE)
+        //    book.Title = updatedBook.Title;
+        //    book.AuthorID = updatedBook.AuthorID;
+        //    book.CategoryId = updatedBook.CategoryId;
+        //    book.Price = updatedBook.Price;
+        //    book.Stock = updatedBook.Stock;
+        //    book.Description = updatedBook.Description;   // 🔥 FIX
+        //    book.ImageUrl = updatedBook.ImageUrl;
+
+        //    _context.SaveChanges();
+
+        //    return RedirectToAction(nameof(Index));
+        //}
+
+
         // =============================
         //             DELETE
         // =============================
