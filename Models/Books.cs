@@ -14,7 +14,7 @@ namespace OnlineBookStore.Models
 
         // Relationship
         public int AuthorID { get; set; }
-        public Authors Author { get; set; }
+        public Authors? Author { get; set; }
 
         public decimal Price { get; set; }
 
@@ -27,14 +27,14 @@ namespace OnlineBookStore.Models
         [Display(Name = "Book Cover")]
         public string ImageUrl { get; set; } = string.Empty;
 
-        public virtual List<OrderDetail> OrderDetails { get; set; }
+        public virtual List<OrderDetail>? OrderDetails { get; set; }
 
-        public List<Review> Reviews { get; set; }
+        public List<Review>? Reviews { get; set; }
 
         public int Sales { get; set; } = 0; // tracks popularity
 
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
 
     }

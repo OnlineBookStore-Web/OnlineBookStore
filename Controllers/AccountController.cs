@@ -53,39 +53,6 @@ public class AccountController : Controller
         return View();
     }
 
-    //[HttpPost]
-    //public async Task<IActionResult> Login(string email, string password)
-    //{
-    //    var user = _context.Users.FirstOrDefault(u => u.Email == email);
-
-    //    if (user != null)
-    //    {
-    //        var result = _passwordHasher.VerifyHashedPassword(user, user.Password, password);
-
-    //        if (result == PasswordVerificationResult.Success)
-    //        {
-    //            // Create Claims
-    //            var claims = new List<Claim>
-    //            {
-    //                new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString()),
-    //                new Claim(ClaimTypes.Name, user.FullName ?? user.Email)
-    //            };
-
-    //            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-    //            var principal = new ClaimsPrincipal(identity);
-
-    //            // Sign In
-    //            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-    //            return RedirectToAction("Index", "Home");
-    //        }
-    //    }
-
-    //    ModelState.AddModelError("", "Invalid email or password");
-    //    return View();
-    //}
-
-
     [HttpPost]
     public async Task<IActionResult> Login(string email, string password)
     {
