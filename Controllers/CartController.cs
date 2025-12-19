@@ -109,7 +109,12 @@ public class CartController : Controller
 
         HttpContext.Session.SetObjectAsJson("Cart", cart);
 
+<<<<<<< HEAD
         return RedirectToAction("Index"); // أو Details page
+=======
+        // Stay on same page
+        return Redirect(Request.Headers["Referer"].ToString());
+>>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6
     }
 
 
@@ -229,4 +234,8 @@ public class CartController : Controller
         return RedirectToAction("OrderHistory", "Orders");
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6
