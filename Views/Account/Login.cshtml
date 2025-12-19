@@ -46,11 +46,16 @@
                         <button type="submit" class="btn btn-primary btn-lg rounded-pill px-4">Sign In</button>
                     </div>
 
-                    <div class="d-flex justify-content-center mt-3">
-                        <p class="mb-0">
+                    <div class="d-flex flex-column align-content-center mt-3">
+                        <p class="mb-0 text-center">
                             Don't have an account?
                             <a asp-controller="Account" asp-action="Register" class="text-primary fw-bold ms-1 text-decoration-none">Sign Up now</a>
                         </p>
+                        <p class="mb-0 text-center">
+                        Sign in as Admin?
+                        <a asp-controller="Account" asp-action="login" class="text-primary fw-bold ms-1 text-decoration-none">Admin</a>
+                        </p>
+
                     </div>
 
                 </form>
