@@ -109,6 +109,49 @@ namespace OnlineBookStore.Controllers
         //}
 
         [HttpPost]
+        //public IActionResult PlaceOrder(CheckoutViewModel model)
+        //{
+        //    if (!User.Identity.IsAuthenticated)
+        //        return RedirectToAction("Login", "Account");
+
+        //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+        //    if (cart == null || !cart.Any())
+        //        return RedirectToAction("Index", "Cart");
+
+        //    int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+        //    var order = new Order
+        //    {
+        //        UserID = userId,
+        //        OrderDate = DateTime.Now,
+        //        Status = "Pending",
+        //        ShippingAddress = model.Address,
+        //        TotalAmount = cart.Sum(i => i.Total)
+        //    };
+
+        //    _context.Orders.Add(order);
+        //    _context.SaveChanges();
+
+        //    foreach (var item in cart)
+        //    {
+        //        _context.OrdersDetails.Add(new OrderDetail
+        //        {
+        //            OrderID = order.OrderID,
+        //            BookID = item.BookID,
+        //            Quantity = item.Quantity,
+        //            Price = item.Price
+        //        });
+        //    }
+
+        //    _context.SaveChanges();
+
+        //    HttpContext.Session.Remove("Cart");
+
+        //    return RedirectToAction("OrderHistory");
+
+        //}
+
+        [HttpPost]
         public IActionResult PlaceOrder(CheckoutViewModel model)
         {
             if (!User.Identity.IsAuthenticated)
@@ -144,10 +187,9 @@ namespace OnlineBookStore.Controllers
             }
 
             _context.SaveChanges();
-
             HttpContext.Session.Remove("Cart");
 
-            return RedirectToAction("OrderHistory");
+            return RedirectToAction("Success");
         }
 
 
@@ -157,16 +199,35 @@ namespace OnlineBookStore.Controllers
         // GET: /Orders/OrderHistory
         // ============================
         [HttpGet]
+        //public IActionResult OrderHistory()
+        //{
+        //    int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
+
+        //    // جلب كل الطلبات الخاصة بالمستخدم
+        //    var userOrders = Orders.Where(o => o.UserID == userId).ToList();
+
+        //    return View(userOrders);
+
+        //}
+
+        [HttpGet]
         public IActionResult OrderHistory()
         {
-            int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Account");
 
-            // جلب كل الطلبات الخاصة بالمستخدم
-            var userOrders = Orders.Where(o => o.UserID == userId).ToList();
+            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-            return View(userOrders);
+            var orders = _context.Orders
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Book)
+                .Where(o => o.UserID == userId)
+                .OrderByDescending(o => o.OrderDate)
+                .ToList();
 
+            return View(orders);
         }
+
 
         // ============================
         // Cancel Order
@@ -184,7 +245,14 @@ namespace OnlineBookStore.Controllers
 
             return RedirectToAction("OrderHistory");
         }
+        public IActionResult Success()
+        {
+            return View();
+        }
     }
+
+    
+
 
     // ============================
     // Models لتجربة الـ Frontend

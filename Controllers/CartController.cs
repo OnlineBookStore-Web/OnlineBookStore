@@ -92,6 +92,28 @@ public class CartController : Controller
     }
 
     // =============================
+    // REMOVE ITEM
+    // =============================
+    [HttpPost]
+    public IActionResult RemoveItem(int bookID)
+    {
+        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart")
+                   ?? new List<CartItem>();
+
+        var item = cart.FirstOrDefault(c => c.BookID == bookID);
+        if (item != null)
+        {
+            cart.Remove(item);
+        }
+
+        HttpContext.Session.SetObjectAsJson("Cart", cart);
+
+        // رجوع لصفحة الكارت بعد المسح
+        return RedirectToAction("Index");
+    }
+
+
+    // =============================
     // CHECKOUT
     // =============================
     //public IActionResult Checkout()
@@ -149,3 +171,4 @@ public class CartController : Controller
     //}
 
 }
+
