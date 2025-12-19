@@ -14,19 +14,6 @@
     <!-- Left: Customer Info -->
     <div class="checkout-form">
         <h2>Checkout</h2>
-@* 
-        <form id="checkoutForm">
-            <label>Full Name</label>
-            <input type="text" id="name" placeholder="Enter your name" required />
-
-            <label>Address</label>
-            <input type="text" id="address" placeholder="Enter your address" required />
-
-            <label>Phone</label>
-            <input type="text" id="phone" placeholder="Enter your phone number" required />
-
-            <button type="submit" class="btn">Place Order</button>
-        </form> *@
 
         <form asp-action="PlaceOrder" asp-controller="Orders" method="post">
 
@@ -39,8 +26,12 @@
             <label>Phone</label>
             <input type="text" name="Phone" required />
 
-            <button type="submit" class="btn">Place Order</button>
+            <button type="submit" class="btn">
+                Place Order
+            </button>
+
         </form>
+
     </div>
 
     <!-- Right: Order Summary -->
