@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineBookStore.Data;
 using OnlineBookStore.Models;
 using System.Linq;
+using OnlineBookStore.Helpers;
 
 namespace OnlineBookStore.Controllers
 {
@@ -56,7 +57,7 @@ namespace OnlineBookStore.Controllers
             ViewBag.SelectedCategoryName = category.HasValue
             ? _context.Categories.FirstOrDefault(c => c.CategoryId == category.Value)?.Name
             : "All Categories";
-            //ViewBag.Cart = CartController.Cart;
+            
             ViewBag.Cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart")
                ?? new List<CartItem>();
 
@@ -78,7 +79,7 @@ namespace OnlineBookStore.Controllers
 
             if (book == null)
                 return NotFound();
-            //ViewBag.Cart = CartController.Cart;
+            
             ViewBag.Cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart")
                ?? new List<CartItem>();
 
@@ -140,18 +141,6 @@ namespace OnlineBookStore.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // =============================
-        //             EDIT
-        // =============================
-        //public IActionResult Edit(int id)
-        //{
-        //    var book = _context.Books.FirstOrDefault(b => b.BookID == id);
-        //    if (book == null)
-        //        return NotFound();
-
-        //    return View(book);
-        //}
-
         public IActionResult Edit(int id)
         {
             var book = _context.Books.FirstOrDefault(b => b.BookID == id);
@@ -182,44 +171,6 @@ namespace OnlineBookStore.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult Edit(int id, Book updatedBook)
-        //{
-        //    if (id != updatedBook.BookID)
-        //        return NotFound();
-
-        //    if (!ModelState.IsValid)
-        //    {
-        //        ViewBag.Categories = new SelectList(
-        //            _context.Categories.ToList(),
-        //            "CategoryId",
-        //            "Name",
-        //            updatedBook.CategoryId
-        //        );
-        //        return View(updatedBook);
-        //    }
-
-        //    var book = _context.Books.FirstOrDefault(b => b.BookID == id);
-        //    if (book == null)
-        //        return NotFound();
-
-        //    // ✅ Explicit updates (SAFE)
-        //    book.Title = updatedBook.Title;
-        //    book.AuthorID = updatedBook.AuthorID;
-        //    book.CategoryId = updatedBook.CategoryId;
-        //    book.Price = updatedBook.Price;
-        //    book.Stock = updatedBook.Stock;
-        //    book.Description = updatedBook.Description;   // 🔥 FIX
-        //    book.ImageUrl = updatedBook.ImageUrl;
-
-        //    _context.SaveChanges();
-
-        //    return RedirectToAction(nameof(Index));
-        //}
-
 
         // =============================
         //             DELETE
