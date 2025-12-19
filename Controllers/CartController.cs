@@ -1,43 +1,42 @@
-﻿// Controllers/CartController.cs
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OnlineBookStore.Models;
-using OnlineBookStore.Data; // For AppDbContext
-using Microsoft.EntityFrameworkCore;
+using OnlineBookStore.Data;
+using System.Linq;
 
 public class CartController : Controller
 {
     private readonly AppDbContext _context;
-
-    // Simulate a cart (replace with DB in real project)
-    private static List<CartItem> cart = new List<CartItem>();
-    //public static List<CartItem> Cart { get; } = new List<CartItem>();
 
     public CartController(AppDbContext context)
     {
         _context = context;
     }
 
-    // Show cart page
+    // عرض صفحة الكارت
     public IActionResult Index()
     {
-        var model = new CartViewModel { Items = cart };
+        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
+        var model = new CartViewModel
+        {
+            Items = cart,
+            CartTotal = cart.Sum(i => i.Price * i.Quantity)
+        };
         return View(model);
     }
 
-    // Add a book to the cart
+    // إضافة كتاب للكارت
     [HttpPost]
     public IActionResult AddToCart(int bookID)
     {
-        // Prevent access if user is not logged in
         if (!User.Identity.IsAuthenticated)
         {
             TempData["LoginRequired"] = "You must sign in before adding items to your cart.";
             return RedirectToAction("Login", "Account");
         }
 
-        // Check if the item already exists in the cart
-        var item = cart.FirstOrDefault(c => c.BookID == bookID);
+        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
 
+        var item = cart.FirstOrDefault(c => c.BookID == bookID);
         if (item != null)
         {
             item.Quantity += 1;
@@ -45,8 +44,7 @@ public class CartController : Controller
         else
         {
             var book = _context.Books.FirstOrDefault(b => b.BookID == bookID);
-            if (book == null)
-                return NotFound();
+            if (book == null) return NotFound();
 
             cart.Add(new CartItem
             {
@@ -57,28 +55,68 @@ public class CartController : Controller
             });
         }
 
-        // Redirect back to the book details page after adding
+        HttpContext.Session.SetObjectAsJson("Cart", cart);
+
         return RedirectToAction("Details", "Books", new { id = bookID });
     }
 
-
-    // Update quantity of a cart item
+    // تحديث كمية عنصر في الكارت
     [HttpPost]
     public IActionResult UpdateQuantity(int bookID, int quantity)
     {
+        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
+
         var item = cart.FirstOrDefault(c => c.BookID == bookID);
         if (item != null)
         {
             item.Quantity = quantity;
         }
+
+        HttpContext.Session.SetObjectAsJson("Cart", cart);
         return RedirectToAction("Index");
     }
 
-    // Remove an item from the cart
+    // إزالة عنصر من الكارت
     [HttpPost]
     public IActionResult RemoveItem(int bookID)
     {
+        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
+
         cart.RemoveAll(c => c.BookID == bookID);
+
+        HttpContext.Session.SetObjectAsJson("Cart", cart);
         return RedirectToAction("Index");
+    }
+
+    // Checkout - تحويل الكارت إلى Orders في الداتا بيز
+    public IActionResult Checkout()
+    {
+        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+        if (cart == null || cart.Count == 0)
+        {
+            TempData["Message"] = "Your cart is empty!";
+            return RedirectToAction("Index");
+        }
+
+        int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
+
+        foreach (var item in cart)
+        {
+            var order = new Order
+            {
+                UserID = userId,
+                BookID = item.BookID,
+                Quantity = item.Quantity,
+                OrderDate = DateTime.Now
+            };
+            _context.Orders.Add(order);
+        }
+
+        _context.SaveChanges();
+
+        // مسح الكارت من Session بعد الدفع
+        HttpContext.Session.Remove("Cart");
+
+        return RedirectToAction("OrderHistory", "Orders");
     }
 }
