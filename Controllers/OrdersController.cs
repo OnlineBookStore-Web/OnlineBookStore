@@ -109,6 +109,49 @@ namespace OnlineBookStore.Controllers
         //}
 
         [HttpPost]
+        //public IActionResult PlaceOrder(CheckoutViewModel model)
+        //{
+        //    if (!User.Identity.IsAuthenticated)
+        //        return RedirectToAction("Login", "Account");
+
+        //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+        //    if (cart == null || !cart.Any())
+        //        return RedirectToAction("Index", "Cart");
+
+        //    int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+        //    var order = new Order
+        //    {
+        //        UserID = userId,
+        //        OrderDate = DateTime.Now,
+        //        Status = "Pending",
+        //        ShippingAddress = model.Address,
+        //        TotalAmount = cart.Sum(i => i.Total)
+        //    };
+
+        //    _context.Orders.Add(order);
+        //    _context.SaveChanges();
+
+        //    foreach (var item in cart)
+        //    {
+        //        _context.OrdersDetails.Add(new OrderDetail
+        //        {
+        //            OrderID = order.OrderID,
+        //            BookID = item.BookID,
+        //            Quantity = item.Quantity,
+        //            Price = item.Price
+        //        });
+        //    }
+
+        //    _context.SaveChanges();
+
+        //    HttpContext.Session.Remove("Cart");
+
+        //    return RedirectToAction("OrderHistory");
+
+        //}
+
+        [HttpPost]
         public IActionResult PlaceOrder(CheckoutViewModel model)
         {
             if (!User.Identity.IsAuthenticated)
@@ -144,10 +187,9 @@ namespace OnlineBookStore.Controllers
             }
 
             _context.SaveChanges();
-
             HttpContext.Session.Remove("Cart");
 
-            return RedirectToAction("OrderHistory");
+            return RedirectToAction("Success");
         }
 
 
@@ -184,7 +226,14 @@ namespace OnlineBookStore.Controllers
 
             return RedirectToAction("OrderHistory");
         }
+        public IActionResult Success()
+        {
+            return View();
+        }
     }
+
+    
+
 
     // ============================
     // Models لتجربة الـ Frontend
