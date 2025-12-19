@@ -199,16 +199,35 @@ namespace OnlineBookStore.Controllers
         // GET: /Orders/OrderHistory
         // ============================
         [HttpGet]
+        //public IActionResult OrderHistory()
+        //{
+        //    int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
+
+        //    // جلب كل الطلبات الخاصة بالمستخدم
+        //    var userOrders = Orders.Where(o => o.UserID == userId).ToList();
+
+        //    return View(userOrders);
+
+        //}
+
+        [HttpGet]
         public IActionResult OrderHistory()
         {
-            int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Account");
 
-            // جلب كل الطلبات الخاصة بالمستخدم
-            var userOrders = Orders.Where(o => o.UserID == userId).ToList();
+            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-            return View(userOrders);
+            var orders = _context.Orders
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Book)
+                .Where(o => o.UserID == userId)
+                .OrderByDescending(o => o.OrderDate)
+                .ToList();
 
+            return View(orders);
         }
+
 
         // ============================
         // Cancel Order
