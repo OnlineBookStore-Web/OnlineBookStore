@@ -1,88 +1,41 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineBookStore.Models;
 using OnlineBookStore.Data;
+using OnlineBookStore.Helpers;
 using System.Linq;
 
 public class CartController : Controller
 {
     private readonly AppDbContext _context;
 
-    // Simulate a cart (replace with DB in real project)
-    //private static List<CartItem> cart = new List<CartItem>();
-    public static List<CartItem> Cart { get; } = new List<CartItem>();
-
     public CartController(AppDbContext context)
     {
         _context = context;
     }
 
-    // عرض صفحة الكارت
+    // =============================
+    // CART PAGE
+    // =============================
     public IActionResult Index()
     {
         var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart")
                    ?? new List<CartItem>();
 
-        var model = new CartViewModel
+        return View(new CartViewModel
         {
             Items = cart,
             CartTotal = cart.Sum(i => i.Price * i.Quantity)
-        };
-
-        return View(model);
+        });
     }
 
-
-    // إضافة كتاب للكارت
-    //[HttpPost]
-    //public IActionResult AddToCart(int bookID)
-    //{
-    //    if (!User.Identity.IsAuthenticated)
-    //    {
-    //        TempData["LoginRequired"] = "You must sign in before adding items to your cart.";
-    //        return RedirectToAction("Login", "Account");
-    //    }
-
-    //    // Check if the item already exists in the cart
-    //    var item = Cart.FirstOrDefault(c => c.BookID == bookID);
-
-    //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
-
-    //    var item = cart.FirstOrDefault(c => c.BookID == bookID);
-    //    if (item != null)
-    //    {
-    //        item.Quantity += 1;
-    //    }
-    //    else
-    //    {
-    //        var book = _context.Books.FirstOrDefault(b => b.BookID == bookID);
-    //        if (book == null) return NotFound();
-
-    //        Cart.Add(new CartItem
-    //        {
-    //            BookID = book.BookID,
-    //            BookTitle = book.Title,
-    //            Price = book.Price,
-    //            Quantity = 1
-    //        });
-    //    }
-
-    //    // Redirect back to the book details page after adding
-    //    //return RedirectToAction("Details", "Books", new { id = bookID });
-    //    return Redirect(Request.Headers["Referer"].ToString());
-
-    //    HttpContext.Session.SetObjectAsJson("Cart", cart);
-
-    //    return RedirectToAction("Details", "Books", new { id = bookID });
-
-    //}
-
+    // =============================
+    // ADD TO CART
+    // =============================
     [HttpPost]
     public IActionResult AddToCart(int bookID)
     {
         if (!User.Identity.IsAuthenticated)
-        {
             return RedirectToAction("Login", "Account");
-        }
 
         var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart")
                    ?? new List<CartItem>();
@@ -109,16 +62,13 @@ public class CartController : Controller
 
         HttpContext.Session.SetObjectAsJson("Cart", cart);
 
-<<<<<<< HEAD
-        return RedirectToAction("Index"); // أو Details page
-=======
-        // Stay on same page
         return Redirect(Request.Headers["Referer"].ToString());
->>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6
+
     }
 
-
-    // تحديث كمية عنصر في الكارت
+    // =============================
+    // UPDATE QTY
+    // =============================
     [HttpPost]
     public IActionResult UpdateQuantity(int bookID, int quantity)
     {
@@ -136,77 +86,20 @@ public class CartController : Controller
         }
 
         HttpContext.Session.SetObjectAsJson("Cart", cart);
-
         return Redirect(Request.Headers["Referer"].ToString());
     }
 
-
-    // إزالة عنصر من الكارت
-    //[HttpPost]
-    //public IActionResult RemoveItem(int bookID)
-    //{
-
-    //    Cart.RemoveAll(c => c.BookID == bookID);
-    //    //return RedirectToAction("Index");
-    //    return Redirect(Request.Headers["Referer"].ToString());
-
-    //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart") ?? new List<CartItem>();
-
-    //    cart.RemoveAll(c => c.BookID == bookID);
-
-    //    HttpContext.Session.SetObjectAsJson("Cart", cart);
-    //    return RedirectToAction("Index");
-
-    //}
-
-    [HttpPost]
-    public IActionResult RemoveItem(int bookID)
-    {
-        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart")
-                   ?? new List<CartItem>();
-
-        cart.RemoveAll(c => c.BookID == bookID);
-
-        HttpContext.Session.SetObjectAsJson("Cart", cart);
-
-        return Redirect(Request.Headers["Referer"].ToString());
-    }
-
-
-    // Checkout - تحويل الكارت إلى Orders في الداتا بيز
-    //public IActionResult Checkout()
-    //{
-    //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
-    //    if (cart == null || cart.Count == 0)
-    //    {
-    //        TempData["Message"] = "Your cart is empty!";
-    //        return RedirectToAction("Index");
-    //    }
-
-    //    int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
-
-    //    foreach (var item in cart)
-    //    {
-    //        var order = new Order
-    //        {
-    //            UserID = userId,
-    //            BookID = item.BookID,
-    //            Quantity = item.Quantity,
-    //            OrderDate = DateTime.Now
-    //        };
-    //        _context.Orders.Add(order);
-    //    }
-
-    //    _context.SaveChanges();
-
-    //    // مسح الكارت من Session بعد الدفع
-    //    HttpContext.Session.Remove("Cart");
-
-    //    return RedirectToAction("OrderHistory", "Orders");
-    //}
-
+    // =============================
+    // CHECKOUT
+    // =============================
     public IActionResult Checkout()
     {
+
+        if (!User.Identity.IsAuthenticated)
+            return RedirectToAction("Login", "Account");
+
+        int userId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value);
+
         var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
 
         if (cart == null || !cart.Any())
@@ -215,27 +108,46 @@ public class CartController : Controller
             return RedirectToAction("Index");
         }
 
-        int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
+        
+
+        var order = new Order
+        {
+            UserID = userId,
+            OrderDate = DateTime.Now,
+            Status = "Pending",
+            TotalAmount = cart.Sum(i => i.Price * i.Quantity)
+        };
+
+        _context.Orders.Add(order);
+        try
+        {
+            _context.SaveChanges();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.InnerException?.Message ?? ex.Message);
+        }
+
 
         foreach (var item in cart)
         {
-            _context.Orders.Add(new Order
+            _context.OrdersDetails.Add(new OrderDetail
             {
-                UserID = userId,
+                OrderID = order.OrderID,
                 BookID = item.BookID,
                 Quantity = item.Quantity,
-                OrderDate = DateTime.Now
+                Price = item.Price
             });
         }
 
+        Console.WriteLine("CART CHECKOUT HIT");
+
+
         _context.SaveChanges();
+
         HttpContext.Session.Remove("Cart");
 
         return RedirectToAction("OrderHistory", "Orders");
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6
