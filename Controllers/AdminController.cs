@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OnlineBookStore.Data;
 using OnlineBookStore.Models;
 
@@ -36,9 +37,26 @@ public class AdminController : Controller
     }
 
     // Manage Orders
+    //public IActionResult Orders()
+    //{
+    //    var orders = _db.Orders.ToList();
+    //.Include(od => od.Book)
+    //.Include(od => od.Order)
+    //    .ThenInclude(o => o.User)
+    //.ToList();
+
+    //    return View(orders);
+    //}
+
     public IActionResult Orders()
     {
-        var orders = _db.Orders.ToList();
-        return View(orders);
+        var orderDetails = _db.OrdersDetails
+            .Include(od => od.Book)
+            .Include(od => od.Order)
+                .ThenInclude(o => o.User)
+            .ToList();
+
+        return View(orderDetails);
     }
+
 }

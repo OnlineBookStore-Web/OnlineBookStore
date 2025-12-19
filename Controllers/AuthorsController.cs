@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OnlineBookStore.Data;
 using OnlineBookStore.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace OnlineBookStore.Controllers
 {
@@ -55,6 +56,7 @@ namespace OnlineBookStore.Controllers
         }
 
         // EDIT - GET
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var author = await _context.Authors.FindAsync(id);
@@ -82,6 +84,7 @@ namespace OnlineBookStore.Controllers
         }
 
         // DELETE - GET
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var author = await _context.Authors.FindAsync(id);

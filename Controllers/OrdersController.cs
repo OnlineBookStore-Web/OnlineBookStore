@@ -3,7 +3,7 @@ using OnlineBookStore.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace YourProject.Controllers
+namespace OnlineBookStore.Controllers
 {
     public class OrdersController : Controller
     {
@@ -17,7 +17,8 @@ namespace YourProject.Controllers
         [HttpGet]
         public IActionResult Checkout()
         {
-            return View("~/Views/Orders/Checkout.cshtml");
+            //return View("~/Views/Orders/Checkout.cshtml");
+            return View();
         }
 
         // ============================
@@ -60,9 +61,11 @@ namespace YourProject.Controllers
         {
             int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
 
+            // جلب كل الطلبات الخاصة بالمستخدم
             var userOrders = Orders.Where(o => o.UserID == userId).ToList();
 
-            return View("OrderHistory", userOrders);
+            return View(userOrders);
+
         }
 
         // ============================
