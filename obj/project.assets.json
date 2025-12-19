@@ -6444,39 +6444,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\shrou\\.nuget\\packages\\": {},
-=======
     "C:\\Users\\Sara Omran\\.nuget\\packages\\": {},
->>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj",
-      "projectName": "OnlineBookStore",
-      "projectPath": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj",
-      "packagesPath": "C:\\Users\\shrou\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\obj\\",
-=======
       "projectUniqueName": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
       "projectName": "OnlineBookStore",
       "projectPath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
       "packagesPath": "C:\\Users\\Sara Omran\\.nuget\\packages\\",
       "outputPath": "D:\\Projects\\Web Development\\OnlineBookStore\\obj\\",
->>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\shrou\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
         "C:\\Users\\Sara Omran\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6485,7 +6469,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6999,30 +6982,5 @@
         }
       }
     }
-<<<<<<< HEAD
   }
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 4b0a927c29d20f67986746fb621185fca5510225
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-<<<<<<< HEAD
-      "message": "Problem reading the cache file C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
-    }
-  ]
-=======
-  }
->>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
-=======
-      "message": "Problem reading the cache file D:\\Projects\\Web Development\\OnlineBookStore\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
-    }
-  ]
->>>>>>> 4b0a927c29d20f67986746fb621185fca5510225
->>>>>>> 7c19e2194bb23edec089c03713bc234fbdfe6bdf
 }
