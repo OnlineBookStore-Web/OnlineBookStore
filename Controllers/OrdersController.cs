@@ -64,12 +64,8 @@ namespace OnlineBookStore.Controllers
             // جلب كل الطلبات الخاصة بالمستخدم
             var userOrders = Orders.Where(o => o.UserID == userId).ToList();
 
-            // تحويل كل Order لـ List<OrderDetail> لو محتاجة تفاصيل كل منتج في الطلب
-            var orderDetailsList = userOrders
-                .SelectMany(o => o.OrderDetails) // OrderDetails مفروض تكون property في Order
-                .ToList();
+            return View(userOrders);
 
-            return View("OrderHistory", orderDetailsList);
         }
 
         // ============================
