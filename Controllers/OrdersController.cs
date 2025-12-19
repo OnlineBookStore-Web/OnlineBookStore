@@ -1,25 +1,75 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using OnlineBookStore.Data;
 using OnlineBookStore.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace OnlineBookStore.Controllers
 {
     public class OrdersController : Controller
     {
-        // قائمة ثابتة لتجربة frontend بدون DB
+        // قائمة مؤقتة (لو مش مستخدمة DB)
         private static List<Order> Orders = new List<Order>();
 
+        private readonly AppDbContext _context;
+
+        // ✅ Constructor لازم يبقى نفس اسم الـ Controller
+        public OrdersController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        // مثال Action
+        public IActionResult Index()
+        {
+            return View(Orders);
+        }
+
+        
         // ============================
         // Checkout Page
         // GET: /Orders/Checkout
         // ============================
         [HttpGet]
-        public IActionResult Checkout()
+       
+            public IActionResult Checkout()
         {
-            //return View("~/Views/Orders/Checkout.cshtml");
-            return View();
+            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+            if (cart == null || !cart.Any())
+            {
+                TempData["Message"] = "Your cart is empty";
+                return RedirectToAction("Index");
+            }
+
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim))
+                return RedirectToAction("Login", "Account");
+
+            int userId = int.Parse(userIdClaim);
+
+            foreach (var item in cart)
+            {
+                var order = new Order
+                {
+                    UserID = userId,
+                    BookID = item.BookID,
+                    Quantity = item.Quantity,
+                    OrderDate = DateTime.Now
+                };
+
+                _context.Orders.Add(order);
+            }
+
+            _context.SaveChanges();
+
+            HttpContext.Session.Remove("Cart");
+
+            return RedirectToAction("OrderHistory", "Orders");
         }
+
+        
 
         // ============================
         // Place Order
