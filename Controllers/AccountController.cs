@@ -53,6 +53,39 @@ public class AccountController : Controller
         return View();
     }
 
+    //[HttpPost]
+    //public async Task<IActionResult> Login(string email, string password)
+    //{
+    //    var user = _context.Users.FirstOrDefault(u => u.Email == email);
+
+    //    if (user != null)
+    //    {
+    //        var result = _passwordHasher.VerifyHashedPassword(user, user.Password, password);
+
+    //        if (result == PasswordVerificationResult.Success)
+    //        {
+    //            // Create Claims
+    //            var claims = new List<Claim>
+    //            {
+    //                new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString()),
+    //                new Claim(ClaimTypes.Name, user.FullName ?? user.Email)
+    //            };
+
+    //            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+    //            var principal = new ClaimsPrincipal(identity);
+
+    //            // Sign In
+    //            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+    //            return RedirectToAction("Index", "Home");
+    //        }
+    //    }
+
+    //    ModelState.AddModelError("", "Invalid email or password");
+    //    return View();
+    //}
+
+
     [HttpPost]
     public async Task<IActionResult> Login(string email, string password)
     {
@@ -64,20 +97,22 @@ public class AccountController : Controller
 
             if (result == PasswordVerificationResult.Success)
             {
-                // Create Claims
                 var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString()),
-                    new Claim(ClaimTypes.Name, user.FullName ?? user.Email)
-                };
-
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var principal = new ClaimsPrincipal(identity);
+            {
+                new Claim(ClaimTypes.NameIdentifier, user.UserID.ToString()),
+                new Claim(ClaimTypes.Name, user.FullName ?? user.Email),
+                new Claim(ClaimTypes.Role, user.Role ?? "User")
+            };
 
                 // Sign In
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-                return RedirectToAction("Index", "Home");
+                if (user.Role == "Admin")
+                    return RedirectToAction("Index", "Admin");
+                else
+                    return RedirectToAction("Index", "Home");
             }
         }
 
@@ -165,39 +200,5 @@ public class AccountController : Controller
     }
 
 
-    // ============================
-    // ADMIN LOGIN  (NO DATABASE)
-    // ============================
-    [HttpGet]
-    public IActionResult AdminLogin()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> AdminLogin(string email, string password)
-    {
-        string adminEmail = "admin@bookstore.com";
-        string adminPassword = "Admin123"; // ثابتين
-
-        if (email == adminEmail && password == adminPassword)
-        {
-            var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, "Admin"),
-            new Claim(ClaimTypes.Role, "Admin")
-        };
-
-            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var principal = new ClaimsPrincipal(identity);
-
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-
-            return RedirectToAction("Index", "Admin"); // يفتح لوحة تحكم الأدمن
-        }
-
-        ModelState.AddModelError("", "Invalid admin credentials");
-        return View();
-    }
 
 }
