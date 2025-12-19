@@ -61,28 +61,28 @@ AppDbInitializer.Seed(app);
 
 //admin
 
-//using (var scope = app.Services.CreateScope())
-//{
-//    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-//    var passwordHasher = new PasswordHasher<User>();
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var passwordHasher = new PasswordHasher<User>();
 
-//    if (!context.Users.Any(u => u.Role == "Admin"))
-//    {
-//        var adminUser = new User
-//        {
-//            FullName = "Book Admin",
-//            Email = "adminnn@gmail.com",
-//            Password = passwordHasher.HashPassword(null, "Admin@12345");
+    if (!context.Users.Any(u => u.Role == "Admin"))
+    {
+        var adminUser = new User
+        {
+            FullName = "Book Admin",
+            Email = "adminnn@gmail.com",
+            IsAdmin = true,
+            Role = "Admin"
+        };
 
-//            IsAdmin = true,
-//            Role = "Admin"
-//        };
+        adminUser.Password = passwordHasher.HashPassword(adminUser, "Admin@123458");
 
 
-//        context.Users.Add(adminUser);
-//        context.SaveChanges();
-//    }
-//}
+        context.Users.Add(adminUser);
+        context.SaveChanges();
+    }
+}
 
 
 

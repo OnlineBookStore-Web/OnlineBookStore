@@ -63,6 +63,7 @@ public class CartController : Controller
         HttpContext.Session.SetObjectAsJson("Cart", cart);
 
         return Redirect(Request.Headers["Referer"].ToString());
+>>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6
     }
 
     // =============================
@@ -122,3 +123,4 @@ public class CartController : Controller
         return RedirectToAction("OrderHistory", "Orders");
     }
 }
+>>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6
