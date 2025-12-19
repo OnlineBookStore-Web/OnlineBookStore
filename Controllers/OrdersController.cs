@@ -31,43 +31,43 @@ namespace OnlineBookStore.Controllers
         // ============================
         // Checkout Page
         // GET: /Orders/Checkout
-        // ============================
-        [HttpGet]
+        //// ============================
+        //[HttpGet]
        
-            public IActionResult Checkout()
-        {
-            var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
-            if (cart == null || !cart.Any())
-            {
-                TempData["Message"] = "Your cart is empty";
-                return RedirectToAction("Index");
-            }
+        //    public IActionResult Checkout()
+        //{
+        //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+        //    if (cart == null || !cart.Any())
+        //    {
+        //        TempData["Message"] = "Your cart is empty";
+        //        return RedirectToAction("Index");
+        //    }
 
-            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            if (string.IsNullOrEmpty(userIdClaim))
-                return RedirectToAction("Login", "Account");
+        //    var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //    if (string.IsNullOrEmpty(userIdClaim))
+        //        return RedirectToAction("Login", "Account");
 
-            int userId = int.Parse(userIdClaim);
+        //    int userId = int.Parse(userIdClaim);
 
-            foreach (var item in cart)
-            {
-                var order = new Order
-                {
-                    UserID = userId,
-                    BookID = item.BookID,
-                    Quantity = item.Quantity,
-                    OrderDate = DateTime.Now
-                };
+        //    foreach (var item in cart)
+        //    {
+        //        var order = new Order
+        //        {
+        //            UserID = userId,
+        //            BookID = item.BookID,
+        //            Quantity = item.Quantity,
+        //            OrderDate = DateTime.Now
+        //        };
 
-                _context.Orders.Add(order);
-            }
+        //        _context.Orders.Add(order);
+        //    }
 
-            _context.SaveChanges();
+        //    _context.SaveChanges();
 
-            HttpContext.Session.Remove("Cart");
+        //    HttpContext.Session.Remove("Cart");
 
-            return RedirectToAction("OrderHistory", "Orders");
-        }
+        //    return RedirectToAction("OrderHistory", "Orders");
+        //}
 
         
 

@@ -1,6 +1,7 @@
 ﻿@model OnlineBookStore.Models.Book
 
 <h2>Edit Book</h2>
+<div asp-validation-summary="All" class="text-danger"></div>
 
 <form asp-action="Edit" method="post">
     <input type="hidden" asp-for="BookID" />
