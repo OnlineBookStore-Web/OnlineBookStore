@@ -11,10 +11,31 @@
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
+    @* <div class="mb-3">
         <label asp-for="AuthorID"></label>
         <input asp-for="AuthorID" class="form-control" />
+    </div> *@
+
+    <div class="mb-3">
+        <label class="form-label d-flex justify-content-between align-items-center">
+            <span>Author</span>
+
+            <a asp-controller="Authors"
+               asp-action="Index"
+               class="btn btn-sm btn-outline-light">
+                Manage Authors
+            </a>
+        </label>
+
+        <select asp-for="AuthorID"
+                class="form-select"
+                asp-items="ViewBag.Authors">
+            <option value="">-- Select Author --</option>
+        </select>
+
+        <span asp-validation-for="AuthorID" class="text-danger"></span>
     </div>
+
 
     <div class="mb-3">
         <label class="form-label d-flex justify-content-between align-items-center">
@@ -37,12 +58,12 @@
 
     <div class="mb-3">
         <label asp-for="Price"></label>
-        <input asp-for="Price" class="form-control" />
+        <input asp-for="Price" class="form-control" min="5" />
     </div>
 
     <div class="mb-3">
         <label asp-for="Stock"></label>
-        <input asp-for="Stock" class="form-control" />
+        <input asp-for="Stock" class="form-control" min="0" />
     </div>
 
     <div class="mb-3">

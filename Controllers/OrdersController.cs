@@ -58,99 +58,6 @@ namespace OnlineBookStore.Controllers
         }
 
 
-
-
-        // ============================
-        // Place Order
-        // POST: /Orders/PlaceOrder
-        // ============================
-        //[HttpPost]
-        //public IActionResult PlaceOrder(string fullName, string address, string phone)
-        //{
-        //    if (!User.Identity.IsAuthenticated)
-        //        return RedirectToAction("Login", "Account");
-
-        //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
-
-        //    if (cart == null || !cart.Any())
-        //        return RedirectToAction("Index", "Cart");
-
-        //    int userId = int.Parse(User.FindFirst(
-        //        System.Security.Claims.ClaimTypes.NameIdentifier).Value);
-
-        //    var order = new Order
-        //    {
-        //        UserID = userId,
-        //        OrderDate = DateTime.Now,
-        //        Status = "Pending",
-        //        TotalAmount = cart.Sum(i => i.Price * i.Quantity)
-        //    };
-
-        //    _context.Orders.Add(order);
-        //    _context.SaveChanges();
-
-        //    foreach (var item in cart)
-        //    {
-        //        _context.OrdersDetails.Add(new OrderDetail
-        //        {
-        //            OrderID = order.OrderID,
-        //            BookID = item.BookID,
-        //            Quantity = item.Quantity,
-        //            Price = item.Price
-        //        });
-        //    }
-
-        //    _context.SaveChanges();
-
-        //    // 🧹 Clear cart after success
-        //    HttpContext.Session.Remove("Cart");
-
-        //    return RedirectToAction("OrderHistory");
-        //}
-
-        [HttpPost]
-        //public IActionResult PlaceOrder(CheckoutViewModel model)
-        //{
-        //    if (!User.Identity.IsAuthenticated)
-        //        return RedirectToAction("Login", "Account");
-
-        //    var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
-        //    if (cart == null || !cart.Any())
-        //        return RedirectToAction("Index", "Cart");
-
-        //    int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-
-        //    var order = new Order
-        //    {
-        //        UserID = userId,
-        //        OrderDate = DateTime.Now,
-        //        Status = "Pending",
-        //        ShippingAddress = model.Address,
-        //        TotalAmount = cart.Sum(i => i.Total)
-        //    };
-
-        //    _context.Orders.Add(order);
-        //    _context.SaveChanges();
-
-        //    foreach (var item in cart)
-        //    {
-        //        _context.OrdersDetails.Add(new OrderDetail
-        //        {
-        //            OrderID = order.OrderID,
-        //            BookID = item.BookID,
-        //            Quantity = item.Quantity,
-        //            Price = item.Price
-        //        });
-        //    }
-
-        //    _context.SaveChanges();
-
-        //    HttpContext.Session.Remove("Cart");
-
-        //    return RedirectToAction("OrderHistory");
-
-        //}
-
         [HttpPost]
         public IActionResult PlaceOrder(CheckoutViewModel model)
         {
@@ -198,17 +105,6 @@ namespace OnlineBookStore.Controllers
         // Order History
         // GET: /Orders/OrderHistory
         // ============================
-        [HttpGet]
-        //public IActionResult OrderHistory()
-        //{
-        //    int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
-
-        //    // جلب كل الطلبات الخاصة بالمستخدم
-        //    var userOrders = Orders.Where(o => o.UserID == userId).ToList();
-
-        //    return View(userOrders);
-
-        //}
 
         [HttpGet]
         public IActionResult OrderHistory()
@@ -233,14 +129,26 @@ namespace OnlineBookStore.Controllers
         // Cancel Order
         // GET: /Orders/Cancel/5
         // ============================
+        
         [HttpGet]
         public IActionResult Cancel(int id)
         {
-            var order = Orders.FirstOrDefault(o => o.OrderID == id);
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login", "Account");
 
-            if (order != null && order.Status == "Pending")
+            int userId = int.Parse(User.FindFirst(
+                System.Security.Claims.ClaimTypes.NameIdentifier).Value);
+
+            var order = _context.Orders
+                .FirstOrDefault(o => o.OrderID == id && o.UserID == userId);
+
+            if (order == null)
+                return NotFound();
+
+            if (order.Status == "Pending")
             {
                 order.Status = "Cancelled";
+                _context.SaveChanges();
             }
 
             return RedirectToAction("OrderHistory");
