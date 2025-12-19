@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\Projects\\Web Development\\OnlineBookStore\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\views\\admin\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\admin\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\data\\appdbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:data\\appdbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -85,7 +81,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -102,45 +98,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "AppDbInitializer.cs",
+              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Data\\AppDbInitializer.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbInitializer.cs",
+              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Data\\AppDbInitializer.cs",
+              "RelativeToolTip": "Data\\AppDbInitializer.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T06:17:50.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEgAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T06:12:31.292Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "Controllers\\AdminController.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAYwJ0AAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T06:10:14.76Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Orders.cshtml",
-              "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Admin\\Orders.cshtml",
-              "RelativeDocumentMoniker": "Views\\Admin\\Orders.cshtml",
-              "ToolTip": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Admin\\Orders.cshtml*",
-              "RelativeToolTip": "Views\\Admin\\Orders.cshtml*",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAADwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-19T06:08:55.748Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Books\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\Books\\Details.cshtml",
@@ -153,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Profile.cshtml",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Account\\Profile.cshtml",
               "RelativeDocumentMoniker": "Views\\Account\\Profile.cshtml",
@@ -166,7 +149,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Success.cshtml",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Orders\\Success.cshtml",
               "RelativeDocumentMoniker": "Views\\Orders\\Success.cshtml",
@@ -178,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "CheckoutViewModel.cs",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Models\\CheckoutViewModel.cs",
               "RelativeDocumentMoniker": "Models\\CheckoutViewModel.cs",
@@ -190,7 +173,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "OrdersDetails.cs",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Models\\OrdersDetails.cs",
               "RelativeDocumentMoniker": "Models\\OrdersDetails.cs",
@@ -202,7 +185,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "OrdersController.cs",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Controllers\\OrdersController.cs",
               "RelativeDocumentMoniker": "Controllers\\OrdersController.cs",
@@ -215,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Cart\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Cart\\Index.cshtml",
@@ -227,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
@@ -239,7 +222,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "CartController.cs",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "Controllers\\CartController.cs",
@@ -251,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "Orders.cs",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Models\\Orders.cs",
               "RelativeDocumentMoniker": "Models\\Orders.cs",
@@ -263,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "Cart.cshtml",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Cart\\Cart.cshtml",
               "RelativeDocumentMoniker": "Views\\Cart\\Cart.cshtml",
@@ -275,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "OrderHistory.cshtml",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Orders\\OrderHistory.cshtml",
               "RelativeDocumentMoniker": "Views\\Orders\\OrderHistory.cshtml",
@@ -288,7 +271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Checkout.cshtml",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Views\\Orders\\Checkout.cshtml",
               "RelativeDocumentMoniker": "Views\\Orders\\Checkout.cshtml",
@@ -300,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "dbo.CartItem.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/OnlineBookStore_db/True/SqlTable/dbo.CartItem.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/OnlineBookStore_db/True/SqlTable/dbo.CartItem.sql",
@@ -309,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "20251219033323_Cart.cs",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Migrations\\20251219033323_Cart.cs",
               "RelativeDocumentMoniker": "Migrations\\20251219033323_Cart.cs",
@@ -321,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "cart.cs",
               "DocumentMoniker": "D:\\Projects\\Web Development\\OnlineBookStore\\Models\\cart.cs",
               "RelativeDocumentMoniker": "Models\\cart.cs",
