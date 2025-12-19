@@ -56,8 +56,7 @@
 
     <div class="cart-summary">
         <h3>Total: @Model.CartTotal.ToString("C")</h3>
-        <a asp-controller="Orders"
-           asp-action="Checkout"
+        <a asp-controller="Orders" asp-action="Checkout"
            class="btn btn-success">
             Proceed to Checkout
         </a>

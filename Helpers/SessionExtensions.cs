@@ -1,8 +1,7 @@
-﻿namespace OnlineBookStore.Helpers
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+namespace OnlineBookStore.Helpers
 {
-    using Microsoft.AspNetCore.Http;
-    using Newtonsoft.Json;
-
     public static class SessionExtensions
     {
         public static void SetObjectAsJson(this ISession session, string key, object value)

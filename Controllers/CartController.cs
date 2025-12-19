@@ -63,7 +63,7 @@ public class CartController : Controller
         HttpContext.Session.SetObjectAsJson("Cart", cart);
 
         return Redirect(Request.Headers["Referer"].ToString());
->>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6
+
     }
 
     // =============================
@@ -94,6 +94,12 @@ public class CartController : Controller
     // =============================
     public IActionResult Checkout()
     {
+
+        if (!User.Identity.IsAuthenticated)
+            return RedirectToAction("Login", "Account");
+
+        int userId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value);
+
         var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
 
         if (cart == null || !cart.Any())
@@ -102,25 +108,46 @@ public class CartController : Controller
             return RedirectToAction("Index");
         }
 
-        int userId = int.Parse(HttpContext.Session.GetString("UserID") ?? "0");
+        
+
+        var order = new Order
+        {
+            UserID = userId,
+            OrderDate = DateTime.Now,
+            Status = "Pending",
+            TotalAmount = cart.Sum(i => i.Price * i.Quantity)
+        };
+
+        _context.Orders.Add(order);
+        try
+        {
+            _context.SaveChanges();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.InnerException?.Message ?? ex.Message);
+        }
+
 
         foreach (var item in cart)
         {
-            _context.Orders.Add(new Order
+            _context.OrdersDetails.Add(new OrderDetail
             {
-                UserID = userId,
+                OrderID = order.OrderID,
                 BookID = item.BookID,
                 Quantity = item.Quantity,
-                OrderDate = DateTime.Now
+                Price = item.Price
             });
         }
 
+        Console.WriteLine("CART CHECKOUT HIT");
+
+
         _context.SaveChanges();
 
-        // CLEAR CART
         HttpContext.Session.Remove("Cart");
 
         return RedirectToAction("OrderHistory", "Orders");
     }
+
 }
->>>>>>> 49d68484d0222a007ed4dc1113008d2d760421e6

@@ -5,6 +5,8 @@ using OnlineBookStore.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using OnlineBookStore.Helpers;
+
 
 namespace OnlineBookStore.Controllers
 {
@@ -27,16 +29,16 @@ namespace OnlineBookStore.Controllers
             return View(Orders);
         }
 
-        
+
         // ============================
         // Checkout Page
         // GET: /Orders/Checkout
         // ============================
         [HttpGet]
-       
-            public IActionResult Checkout()
+        public IActionResult Checkout()
         {
             var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart");
+
             if (cart == null || !cart.Any())
             {
                 TempData["Message"] = "Your cart is empty";
@@ -49,28 +51,36 @@ namespace OnlineBookStore.Controllers
 
             int userId = int.Parse(userIdClaim);
 
+            var order = new Order
+            {
+                UserID = userId,
+                OrderDate = DateTime.Now,
+                TotalAmount = cart.Sum(i => i.Price * i.Quantity)
+            };
+
+            _context.Orders.Add(order);
+            _context.SaveChanges(); // 🔴 REQUIRED to get OrderID
+
             foreach (var item in cart)
             {
-                var order = new Order
+                var orderDetail = new OrderDetail
                 {
-                    UserID = userId,
+                    OrderID = order.OrderID,
                     BookID = item.BookID,
                     Quantity = item.Quantity,
-                    OrderDate = DateTime.Now
+                    Price = item.Price
                 };
 
-                _context.Orders.Add(order);
+                _context.OrdersDetails.Add(orderDetail);
             }
 
             _context.SaveChanges();
-
             HttpContext.Session.Remove("Cart");
 
             return RedirectToAction("OrderHistory", "Orders");
         }
 
-        
-
+       
         // ============================
         // Place Order
         // POST: /Orders/PlaceOrder
