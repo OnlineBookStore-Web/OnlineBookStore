@@ -17,6 +17,6 @@ namespace OnlineBookStore.Models
     public class CartViewModel
     {
         public List<CartItem> Items { get; set; } = new List<CartItem>();
-        public decimal CartTotal => Items.Sum(i => i.Total);
+        public decimal CartTotal { get; set; }
     }
 }
