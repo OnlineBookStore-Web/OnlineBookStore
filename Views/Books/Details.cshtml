@@ -4,6 +4,13 @@
     ViewData["Title"] = Model.Title;
 }
 
+@{
+    var cart = ViewBag.Cart as List<CartItem> ?? new List<CartItem>();
+    var cartItem = cart.FirstOrDefault(c => c.BookID == Model.BookID);
+    var quantity = cartItem?.Quantity ?? 0;
+}
+
+
 <style>
     .book-cover {
         width: 100%;
@@ -63,32 +70,55 @@
 
             <hr />
 
-            <!-- Add to Cart -->
-            @if (User.Identity.IsAuthenticated)
+            @if (User.Identity.IsAuthenticated && Model.Stock > 0)
             {
-                @* User is logged in → allow adding to cart *@
-                @if (Model.Stock > 0)
-                {
-                    <form asp-controller="Cart" asp-action="AddToCart" method="post">
-                        <input type="hidden" name="bookId" value="@Model.BookID" />
-                        <button class="btn btn-primary btn-lg mt-2">
-                            <i class="bi bi-cart-plus"></i> Add to Cart
-                        </button>
-                    </form>
-                }
-                else
-                {
-                    <button class="btn btn-secondary btn-lg mt-2" disabled>
-                        Out of Stock
-                    </button>
-                }
+                <div class="d-flex align-items-center gap-2 mt-3">
+
+                    @if (quantity == 0)
+                    {
+                        <!-- CART ICON -->
+                        <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                            <input type="hidden" name="bookID" value="@Model.BookID" />
+                            <button class="btn btn-primary btn-lg">
+                                <i class="bi bi-cart-plus"></i> Add to Cart
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <!-- − -->
+                        <form asp-controller="Cart" asp-action="UpdateQuantity" method="post">
+                            <input type="hidden" name="bookID" value="@Model.BookID" />
+                            <input type="hidden" name="quantity" value="@(quantity - 1)" />
+                            <button class="btn btn-outline-secondary btn-lg">−</button>
+                        </form>
+
+                        <!-- QTY -->
+                        <span class="fw-bold fs-5">@quantity</span>
+
+                        <!-- + -->
+                        <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                            <input type="hidden" name="bookID" value="@Model.BookID" />
+                            <button class="btn btn-outline-primary btn-lg"
+                                    @(quantity >= Model.Stock ? "disabled" : "")>
+                                +
+                            </button>
+                        </form>
+                    }
+
+                </div>
+            }
+            else if (!User.Identity.IsAuthenticated)
+            {
+                <button class="btn btn-primary btn-lg mt-3"
+                        onclick="alert('You must sign in first to add items to your cart!');">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                </button>
             }
             else
             {
-                @* User is NOT logged in → show alert *@
-                <button class="btn btn-primary btn-lg mt-2"
-                        onclick="alert('You must sign in first to add items to your cart!');">
-                    <i class="bi bi-cart-plus"></i> Add to Cart
+                <button class="btn btn-secondary btn-lg mt-3" disabled>
+                    Out of Stock
                 </button>
             }
 

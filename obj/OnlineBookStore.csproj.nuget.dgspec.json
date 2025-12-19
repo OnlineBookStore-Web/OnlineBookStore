@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj": {}
+    "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj": {}
   },
   "projects": {
-    "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj": {
+    "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj",
+        "projectUniqueName": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
         "projectName": "OnlineBookStore",
-        "projectPath": "D:\\kolya\\onlineBookStore1\\OnlineBookStore.csproj",
-        "packagesPath": "C:\\Users\\nadaw\\.nuget\\packages\\",
-        "outputPath": "D:\\kolya\\onlineBookStore1\\obj\\",
+        "projectPath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
+        "packagesPath": "C:\\Users\\Sara Omran\\.nuget\\packages\\",
+        "outputPath": "D:\\Projects\\Web Development\\OnlineBookStore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nadaw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sara Omran\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,10 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
             "Microsoft.CodeAnalysis.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -97,6 +101,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[10.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
             }
           },
           "imports": [
