@@ -96,6 +96,37 @@ public class AdminController : Controller
         return RedirectToAction(nameof(Books));
     }
 
+    //public IActionResult Create()
+    //{
+    //    ViewBag.Categories = new SelectList(
+    //        _db.Categories,
+    //        "CategoryId",
+    //        "Name"
+    //    );
+    //    return View();
+    //}
+
+    //[HttpPost]
+    //[ValidateAntiForgeryToken]
+    //public IActionResult Create(Book book)
+    //{
+    //    if (!ModelState.IsValid)
+    //    {
+    //        ViewBag.Categories = new SelectList(
+    //            _db.Categories,
+    //            "CategoryId",
+    //            "Name",
+    //            book.CategoryId
+    //        );
+    //        return View(book);
+    //    }
+
+    //    _db.Books.Add(book);
+    //    _db.SaveChanges();
+
+    //    return RedirectToAction(nameof(Books)); 
+    //}
+
     public IActionResult Create()
     {
         ViewBag.Categories = new SelectList(
@@ -103,6 +134,13 @@ public class AdminController : Controller
             "CategoryId",
             "Name"
         );
+
+        ViewBag.Authors = new SelectList(
+            _db.Authors,
+            "AuthorID",
+            "Name"   // or FullName (use your actual property)
+        );
+
         return View();
     }
 
@@ -118,14 +156,23 @@ public class AdminController : Controller
                 "Name",
                 book.CategoryId
             );
+
+            ViewBag.Authors = new SelectList(
+                _db.Authors,
+                "AuthorID",
+                "Name",
+                book.AuthorID
+            );
+
             return View(book);
         }
 
         _db.Books.Add(book);
         _db.SaveChanges();
 
-        return RedirectToAction(nameof(Books)); 
+        return RedirectToAction(nameof(Books));
     }
+
 
     //delete
     // GET: Admin/Delete/5
