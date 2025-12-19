@@ -4,6 +4,13 @@
     ViewData["Title"] = Model.Title;
 }
 
+@{
+    var cart = ViewBag.Cart as List<CartItem> ?? new List<CartItem>();
+    var cartItem = cart.FirstOrDefault(c => c.BookID == Model.BookID);
+    var quantity = cartItem?.Quantity ?? 0;
+}
+
+
 <style>
     .book-cover {
         width: 100%;

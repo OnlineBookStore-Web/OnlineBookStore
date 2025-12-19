@@ -56,6 +56,8 @@ namespace OnlineBookStore.Controllers
             ViewBag.SelectedCategoryName = category.HasValue
             ? _context.Categories.FirstOrDefault(c => c.CategoryId == category.Value)?.Name
             : "All Categories";
+            ViewBag.Cart = CartController.Cart;
+
 
             return View(books.ToList());
         }
@@ -74,6 +76,7 @@ namespace OnlineBookStore.Controllers
 
             if (book == null)
                 return NotFound();
+            ViewBag.Cart = CartController.Cart;
 
             return View(book);
         }

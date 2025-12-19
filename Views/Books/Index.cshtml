@@ -5,6 +5,10 @@
 
     string selectedSort = Context.Request.Query["sort"];
 }
+@{
+    var cart = ViewBag.Cart as List<CartItem> ?? new List<CartItem>();
+}
+
 
 <style>
     .hero {
@@ -91,25 +95,49 @@
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <div class="price">$@item.Price</div>
 
+                                @{
+                                    var cartItem = cart.FirstOrDefault(c => c.BookID == item.BookID);
+                                    var quantity = cartItem?.Quantity ?? 0;
+                                }
+
                                 @if (User.Identity.IsAuthenticated && item.Stock > 0)
                                 {
-                                    <form asp-controller="Cart" asp-action="AddToCart" method="post" onclick="event.stopPropagation()">
-                                        <input type="hidden" name="bookId" value="@item.BookID" />
-                                        <button type="submit" class="btn btn-outline-primary btn-sm">
-                                            <i class="bi bi-cart-plus"></i>
-                                        </button>
-                                    </form>
+                                    <div onclick="event.stopPropagation()">
+
+                                        @if (quantity == 0)
+                                        {
+                                            <!-- CART ICON -->
+                                            <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                                <input type="hidden" name="bookID" value="@item.BookID" />
+                                                <button class="btn btn-outline-primary btn-sm">
+                                                    <i class="bi bi-cart-plus"></i>
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <!-- - 1 + -->
+                                            <div class="d-flex align-items-center gap-1">
+
+                                                <form asp-controller="Cart" asp-action="UpdateQuantity" method="post">
+                                                    <input type="hidden" name="bookID" value="@item.BookID" />
+                                                    <input type="hidden" name="quantity" value="@(quantity - 1)" />
+                                                    <button class="btn btn-outline-secondary btn-sm">−</button>
+                                                </form>
+
+                                                <span class="fw-bold">@quantity</span>
+
+                                                <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                                    <input type="hidden" name="bookID" value="@item.BookID" />
+                                                    <button class="btn btn-outline-primary btn-sm">+</button>
+                                                </form>
+
+                                            </div>
+                                        }
+                                    </div>
                                 }
-                                else if (item.Stock > 0)
-                                {
-                                    <button class="btn btn-secondary btn-sm" disabled title="Log in to add to cart">
-                                        <i class="bi bi-cart-plus"></i>
-                                    </button>
-                                }
-                                else
-                                {
-                                    <button class="btn btn-secondary btn-sm" disabled>Out of Stock</button>
-                                }
+
+
 
                             </div>
 
