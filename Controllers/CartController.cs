@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineBookStore.Models;
 using OnlineBookStore.Data;
 using OnlineBookStore.Helpers;
+using OnlineBookStore.Models;
 using System.Linq;
+using System.Security.Claims;
 
 public class CartController : Controller
 {
@@ -37,34 +38,33 @@ public class CartController : Controller
         if (!User.Identity.IsAuthenticated)
             return RedirectToAction("Login", "Account");
 
-        var cart = HttpContext.Session.GetObjectFromJson<List<CartItem>>("Cart")
-                   ?? new List<CartItem>();
+        int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-        var item = cart.FirstOrDefault(c => c.BookID == bookID);
+        var cartItem = _context.CartItem
+            .FirstOrDefault(c => c.UserID == userId && c.BookID == bookID);
 
-        if (item != null)
+        if (cartItem != null)
         {
-            item.Quantity++;
+            cartItem.Quantity++;
         }
         else
         {
-            var book = _context.Books.FirstOrDefault(b => b.BookID == bookID);
+            var book = _context.Books.Find(bookID);
             if (book == null) return NotFound();
 
-            cart.Add(new CartItem
+            _context.CartItem.Add(new CartItem
             {
-                BookID = book.BookID,
-                BookTitle = book.Title,
-                Price = book.Price,
-                Quantity = 1
+                UserID = userId,
+                BookID = bookID,
+                Quantity = 1,
+                Price = book.Price
             });
         }
 
-        HttpContext.Session.SetObjectAsJson("Cart", cart);
-
-        return Redirect(Request.Headers["Referer"].ToString());
-
+        _context.SaveChanges();
+        return RedirectToAction("Index");
     }
+
 
     // =============================
     // UPDATE QTY
@@ -147,7 +147,7 @@ public class CartController : Controller
 
         HttpContext.Session.Remove("Cart");
 
-        return RedirectToAction("OrderHistory", "Orders");
+        return RedirectToAction("Checkout", "Orders");
     }
 
 }
