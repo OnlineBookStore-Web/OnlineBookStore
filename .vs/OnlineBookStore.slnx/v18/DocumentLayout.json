@@ -1,6 +1,25 @@
 {
   "Version": 1,
+<<<<<<< HEAD
+<<<<<<< HEAD
+  "WorkspaceRootPath": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\shrou\\source\\repos\\onlinebookstore\\new folder\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\shrou\\source\\repos\\onlinebookstore\\new folder\\views\\admin\\books.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\admin\\books.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|c:\\users\\shrou\\source\\repos\\onlinebookstore\\new folder\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+=======
+  "WorkspaceRootPath": "D:\\kolya\\onlineBookStore1\\",
+=======
   "WorkspaceRootPath": "D:\\Projects\\Web Development\\OnlineBookStore\\",
+>>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\views\\books\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -83,11 +102,23 @@
       "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
+      "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\views\\orders\\orderhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:views\\orders\\orderhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+<<<<<<< HEAD
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/OnlineBookStore_db/True/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+>>>>>>> 64ebfe94199b61e4bf96421989f40ed958b33cf7
+=======
+=======
+>>>>>>> 4b0a927c29d20f67986746fb621185fca5510225
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/OnlineBookStore_db/True/SqlTable/dbo.CartItem.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|d:\\projects\\web development\\onlinebookstore\\migrations\\20251219033323_cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B97BC50-F73D-95E6-A151-B9189F4DC98E}|OnlineBookStore.csproj|solutionrelative:migrations\\20251219033323_cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
     }
   ],
   "DocumentGroupContainers": [
@@ -100,6 +131,197 @@
           "SelectedChildIndex": 3,
           "Children": [
             {
+<<<<<<< HEAD
+<<<<<<< HEAD
+              "$type": "Document",
+              "DocumentIndex": 0,
+<<<<<<< HEAD
+              "Title": "Index.cshtml",
+<<<<<<< HEAD
+              "DocumentMoniker": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T04:54:56.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Books.cshtml",
+              "DocumentMoniker": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Views\\Admin\\Books.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Books.cshtml",
+              "ToolTip": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Views\\Admin\\Books.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Books.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T03:28:37.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T01:43:16.551Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+=======
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T04:59:23.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Authors.cs",
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Models\\Authors.cs",
+              "RelativeDocumentMoniker": "Models\\Authors.cs",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Models\\Authors.cs",
+              "RelativeToolTip": "Models\\Authors.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwBMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T04:38:28.607Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Views\\Authors\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Authors\\Create.cshtml",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Views\\Authors\\Create.cshtml",
+              "RelativeToolTip": "Views\\Authors\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T04:37:55.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "dbo.Authors [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/OnlineBookStore_db/True/SqlTable/dbo.Authors.sql",
+              "ToolTip": "dbo.Authors [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-12-19T04:25:18.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BooksController.cs",
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Controllers\\BooksController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BooksController.cs",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Controllers\\BooksController.cs",
+              "RelativeToolTip": "Controllers\\BooksController.cs",
+              "ViewState": "AgIAAMcAAAAAAAAAAAAAAMcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T04:20:18.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Books.cs",
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Models\\Books.cs",
+              "RelativeDocumentMoniker": "Models\\Books.cs",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Models\\Books.cs",
+              "RelativeToolTip": "Models\\Books.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAiwCgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T04:08:42.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Create.cshtml",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Create.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Create.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T04:06:54.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Books.cshtml",
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Books.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Books.cshtml",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Books.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Books.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T03:28:07.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Edit.cshtml",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T03:10:09.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Delete.cshtml",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T02:57:29.091Z",
+=======
+              "Title": "Orders.cshtml",
+              "DocumentMoniker": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Orders.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Orders.cshtml",
+              "ToolTip": "D:\\kolya\\onlineBookStore1\\Views\\Admin\\Orders.cshtml*",
+              "RelativeToolTip": "Views\\Admin\\Orders.cshtml*",
+              "ViewState": "AgIAACgAAAAAAAAAAAAiwDMAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T05:43:30.66Z",
+>>>>>>> bcbfc181e170bcf94e1d1ff8fd3f366b5e076ac5
+              "EditorCaption": ""
+            },
+            {
+=======
+>>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
+=======
+>>>>>>> 4b0a927c29d20f67986746fb621185fca5510225
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
@@ -363,6 +585,11 @@
               "RelativeToolTip": "Migrations\\20251219033323_Cart.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< HEAD
+              "WhenOpened": "2025-12-18T23:13:48.724Z",
+              "EditorCaption": ""
+>>>>>>> 64ebfe94199b61e4bf96421989f40ed958b33cf7
+=======
               "WhenOpened": "2025-12-19T05:20:29.169Z"
             },
             {
@@ -376,6 +603,7 @@
               "ViewState": "AgIAAAgAAAAAAAAAAAAxwA4AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T03:32:58.144Z"
+>>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
             }
           ]
         }

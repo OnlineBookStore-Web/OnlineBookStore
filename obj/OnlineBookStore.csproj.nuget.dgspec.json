@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj",
+        "projectName": "OnlineBookStore",
+        "projectPath": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\OnlineBookStore.csproj",
+        "packagesPath": "C:\\Users\\shrou\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\shrou\\source\\repos\\OnlineBookStore\\New folder\\obj\\",
+=======
     "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj": {}
   },
   "projects": {
@@ -12,12 +25,17 @@
         "projectPath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
         "packagesPath": "C:\\Users\\Sara Omran\\.nuget\\packages\\",
         "outputPath": "D:\\Projects\\Web Development\\OnlineBookStore\\obj\\",
+>>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
+          "C:\\Users\\shrou\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
           "C:\\Users\\Sara Omran\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 2f08e402551abfb0786891901f18e63b760389f6
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +44,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
