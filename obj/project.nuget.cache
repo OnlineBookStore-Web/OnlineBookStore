@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bALHUva5K9Y=",
+  "dgSpecHash": "GpNdCiFzWUU=",
   "success": true,
   "projectFilePath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
   "expectedPackageFiles": [
@@ -135,15 +135,5 @@
     "C:\\Users\\Sara Omran\\.nuget\\packages\\system.security.permissions\\9.0.0\\system.security.permissions.9.0.0.nupkg.sha512",
     "C:\\Users\\Sara Omran\\.nuget\\packages\\system.windows.extensions\\9.0.0\\system.windows.extensions.9.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "message": "Problem reading the cache file D:\\Projects\\Web Development\\OnlineBookStore\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
-      "projectPath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
-      "warningLevel": 1,
-      "filePath": "D:\\Projects\\Web Development\\OnlineBookStore\\OnlineBookStore.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }
