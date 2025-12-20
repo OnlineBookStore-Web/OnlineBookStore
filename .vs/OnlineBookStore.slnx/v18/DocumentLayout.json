@@ -46,12 +46,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "dbo.Orders [Data]",
+              "Title": "dbo.Orders.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/OnlineBookStore_db/True/SqlTable/dbo.Orders.sql",
-              "ToolTip": "dbo.Orders [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/OnlineBookStore_db/True/SqlTable/dbo.Orders.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-12-20T08:12:34.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-20T08:12:34.446Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "RelativeToolTip": "Views\\Books\\Details.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAALQAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-20T06:32:35.614Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-20T06:32:35.614Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "Views\\Books\\Index.cshtml",
               "ViewState": "AgIAAGwAAAAAAAAAAAAAAIgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-20T06:32:32.293Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-20T06:32:32.293Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "RelativeToolTip": "Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-20T06:32:09.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-20T06:32:09.942Z"
             }
           ]
         }
