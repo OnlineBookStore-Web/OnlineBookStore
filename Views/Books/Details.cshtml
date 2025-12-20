@@ -186,9 +186,11 @@
             <label>Comment</label>
             <textarea name="comment" class="form-control" rows="4" required></textarea>
         </div>
-
-        <button class="btn btn-primary">Submit Review</button>
-    </form>
+        @if(User.IsInRole("User"))
+            {
+                <button class="btn btn-primary">Submit Review</button>
+            }
+            </form>
     <script>
         function showLoginAlert() {
             alert("⚠ You must sign in before adding items to your cart.");
