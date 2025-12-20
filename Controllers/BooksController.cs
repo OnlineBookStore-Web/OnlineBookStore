@@ -17,9 +17,7 @@ namespace OnlineBookStore.Controllers
             _context = context;
         }
 
-        // =============================
-        //           INDEX
-        // =============================
+        //       INDEX
         public IActionResult Index(string search, int? category, string sort)
         {
             var books = _context.Books
@@ -52,7 +50,8 @@ namespace OnlineBookStore.Controllers
                     break;
             }
 
-            ViewBag.Categories = _context.Categories.ToList(); // ⭐ send categories to view
+            // Categories 
+            ViewBag.Categories = _context.Categories.ToList();
             ViewBag.SelectedCategory = category;
             ViewBag.SelectedCategoryName = category.HasValue
             ? _context.Categories.FirstOrDefault(c => c.CategoryId == category.Value)?.Name
@@ -65,16 +64,13 @@ namespace OnlineBookStore.Controllers
             return View(books.ToList());
         }
 
-
-        // =============================
         //         DETAILS
-        // =============================
         public IActionResult Details(int id)
         {
             var book = _context.Books
                 .Include(b => b.Author)
                 .Include(b => b.Reviews)
-                .Include(b => b.Category)   // 🔥 REQUIRED
+                .Include(b => b.Category) 
                 .FirstOrDefault(b => b.BookID == id);
 
             if (book == null)
@@ -86,10 +82,7 @@ namespace OnlineBookStore.Controllers
             return View(book);
         }
 
-
-        // =============================
         //        ADD REVIEW
-        // =============================
         [HttpPost]
         public IActionResult AddReview(int bookId, string userName, int rating, string comment)
         {
@@ -111,10 +104,7 @@ namespace OnlineBookStore.Controllers
             return RedirectToAction("Details", new { id = bookId });
         }
 
-
-        // =============================
         //            CREATE
-        // =============================
         public IActionResult Create()
         {
             ViewBag.Categories = new SelectList(_context.Categories.ToList(), "CategoryId", "Name");
@@ -172,9 +162,7 @@ namespace OnlineBookStore.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // =============================
         //             DELETE
-        // =============================
         public IActionResult Delete(int id)
         {
             var book = _context.Books.FirstOrDefault(b => b.BookID == id);

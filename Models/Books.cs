@@ -12,7 +12,6 @@ namespace OnlineBookStore.Models
         [StringLength(200)]
         public string Title { get; set; }
 
-        // Relationship
         public int AuthorID { get; set; }
         public Authors? Author { get; set; }
 
@@ -27,6 +26,7 @@ namespace OnlineBookStore.Models
         [Display(Name = "Book Cover")]
         public string ImageUrl { get; set; } = string.Empty;
 
+        //many orders and many reviews
         public virtual List<OrderDetail>? OrderDetails { get; set; }
 
         public List<Review>? Reviews { get; set; }

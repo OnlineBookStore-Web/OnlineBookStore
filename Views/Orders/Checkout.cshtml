@@ -4,58 +4,149 @@
     ViewData["Title"] = "Checkout";
     Layout = "~/Views/Shared/_Layout.cshtml"; // لو عندك Layout عام
 }
-@* ده اللينك البيربط ال css *@
-<link rel="stylesheet" href="~/css/checkout.css" />
 
+ <style>
+    .checkout-container {
+        max-width: 1100px;
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+        font-family: 'Segoe UI', sans-serif;
+    }
 
+    /* ===== Left Form ===== */
+    .checkout-form {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .checkout-form h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+    }
+
+     .form-group input:focus {
+        outline: none;
+        border-color: #007bff;
+     }
+
+    .btn-primary {
+        width: 100%;
+        padding: 12px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+    /* ===== Right Summary ===== */
+    .order-summary {
+        background: #fafafa;
+        padding: 25px;
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+    }
+
+        .order-summary h2 {
+            margin-bottom: 20px;
+        }
+
+    .summary-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    .item-info span {
+        display: block;
+        font-size: 14px;
+        color: #777;
+    }
+
+    .item-price {
+        font-weight: 600;
+    }
+
+    .summary-total {
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+
+ </style>
 
 <div class="checkout-container">
 
-    <!-- Left: Customer Info -->
+    <!-- Customer Information -->
     <div class="checkout-form">
         <h2>Checkout</h2>
 
         <form asp-action="PlaceOrder" asp-controller="Orders" method="post">
 
-            <label>Full Name</label>
-            <input type="text" name="FullName" required />
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="FullName" placeholder="Enter your full name" required />
+            </div>
 
-            <label>Address</label>
-            <input type="text" name="Address" required />
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" name="Address" placeholder="Shipping address" required />
+            </div>
 
-            <label>Phone</label>
-            <input type="text" name="Phone" required />
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="Phone" placeholder="Phone number" required />
+            </div>
 
-            <button type="submit" class="btn">
+            <button type="submit" class="btn-primary">
                 Place Order
             </button>
 
         </form>
-
     </div>
 
-    <!-- Right: Order Summary -->
-    @* <div class="order-summary">
-        <h2>Order Summary</h2>
-        <div id="itemsList"></div>
-        <hr />
-        <div class="summary-line">
-            <div>Total:</div>
-            <div id="totalPrice" class="total">$0</div>
-        </div>
-    </div> *@
-
+    <!-- Order Summary -->
     <div class="order-summary">
         <h2>Order Summary</h2>
 
         @foreach (var item in Model.Items)
         {
             <div class="summary-item">
-                <div>
-                    <strong>@item.BookTitle</strong><br />
-                    Qty: @item.Quantity
+                <div class="item-info">
+                    <strong>@item.BookTitle</strong>
+                    <span>Qty: @item.Quantity</span>
                 </div>
-                <div>
+                <div class="item-price">
                     $@(item.Price* item.Quantity)
                 </div>
             </div>
@@ -63,16 +154,12 @@
 
         <hr />
 
-        <div class="summary-line">
-            <div>Total:</div>
-            <div class="total">$@Model.Total</div>
+        <div class="summary-total">
+            <span>Total</span>
+            <span>$@Model.Total</span>
         </div>
     </div>
 
-
 </div>
 
-
-    <script src="~/js/checkout.js"></script>
-
-
+<script src="~/js/checkout.js"></script>

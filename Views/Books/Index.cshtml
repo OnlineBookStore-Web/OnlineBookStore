@@ -2,10 +2,7 @@
 
 @{
     ViewData["Title"] = "Books";
-
     string selectedSort = Context.Request.Query["sort"];
-}
-@{
     var cart = ViewBag.Cart as List<CartItem> ?? new List<CartItem>();
 }
 
@@ -26,12 +23,11 @@
         transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-        .book-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
+    .book-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
 
-    /* Image fixed height */
     .book-image {
         height: 330px;
         width: 100%;
@@ -40,16 +36,14 @@
         border-top-right-radius: 8px;
     }
 
-    /* Title clamp */
     .book-card h5 {
-        min-height: 48px; /* forces equal title space */
+        min-height: 48px;
         display: -webkit-box;
-        -webkit-line-clamp: 2; /* max 2 lines */
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
 
-    /* Push price & buttons to bottom */
     .book-card .p-3 {
         flex: 1;
         display: flex;
@@ -61,7 +55,6 @@
         font-size: 1.1rem;
     }
 
-    /* Bottom area alignment */
     .book-card .mt-3 {
         margin-top: auto !important;
     }
@@ -75,7 +68,6 @@
     </div>
 </div>
 
-<!-- TO DISPLAY THE CATEGORY SBOVE SORT -->
 <div class="container mb-3">
     <h5 class="fw-bold">
         Category:
@@ -141,7 +133,9 @@
                                 { <span class="badge bg-danger">Out of Stock</span> }
 
                             <div class="d-flex justify-content-between align-items-center mt-3">
-                                <div class="price">$@item.Price</div>
+                                <div class="price">
+                                    $@item.Price.ToString("0.00")
+                                </div>
 
                                 @{
                                     var cartItem = cart.FirstOrDefault(c => c.BookID == item.BookID);
@@ -164,7 +158,6 @@
                                         }
                                         else
                                         {
-                                            <!-- - 1 + -->
                                             <div class="d-flex align-items-center gap-1">
 
                                                 <form asp-controller="Cart" asp-action="UpdateQuantity" method="post">
