@@ -1,33 +1,4 @@
-﻿@* @model List<OnlineBookStore.Models.OrderDetail>
-
-<h3>Orders Management</h3>
-<table class="table table-bordered table-striped table-hover">
-    <thead class="table-dark">
-
-        <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Book</th>
-            <th>Quantity</th>
-            <th>Total Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var order in Model)
-        {
-            <tr>
-                <td>@order.OrderID</td>
-                <td>@order.BookID</td>
-                <td>@order.Quantity</td>
-                <td>@order.Price</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
- *@
-
-@model List<OnlineBookStore.Models.OrderDetail>
+﻿@model List<OnlineBookStore.Models.OrderDetail>
 
 <h3 class="mb-4">Orders Management</h3>
 
@@ -70,19 +41,36 @@
 
                 <td>@item.Price.ToString("C")</td>
 
-                <td>@(item.Price* item.Quantity).ToString("C")</td>
+                <td>@(item.Price* item.Quantity)</td>
                 <td>
+                    
                     @if (item.Order?.Status == "Pending")
                     {
-                        <form asp-action="AcceptOrder" method="post" style="display:inline">
+                        <form asp-controller="Admin"
+                              asp-action="AcceptOrder"
+                              method="post"
+                              style="display:inline">
+
+                            @Html.AntiForgeryToken()
+
                             <input type="hidden" name="id" value="@item.OrderID" />
-                            <button type="submit" class="btn btn-success btn-sm">Accept</button>
-                        </form>
+                            @if (Model.Count(x => x.OrderID == item.OrderID) > 0 &&
+                                Model.First(x => x.OrderID == item.OrderID) == item)
+                                {
+
+
+
+                                    <button type="submit" class="btn btn-success btn-sm">
+                                        Accept
+                                    </button>
+                                }
+                            </form>
                     }
                     else
                     {
-                        <span class="text-muted">Cannot accept</span>
+                        <span class="text-muted">Accepted</span>
                     }
+
                 </td>
             </tr>
         }
